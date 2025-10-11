@@ -70,10 +70,34 @@
             right: 40px;
             width: 80px;
             height: 80px;
-            opacity: 0.8;
-            pointer-events: none;
+            opacity: 0.3;
+            pointer-events: auto;
             z-index: 0;
             animation: floatSheep 4s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        .decorative-sheep::after {
+            content: 'Philippians 4:13';
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c77b7b;
+            color: #f5f1ed;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .decorative-sheep:hover::after {
+            opacity: 1;
         }
 
         .decorative-sheep img {
