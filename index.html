@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noris Martinez - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: #f5f1ed;
+            color: #8b6f5e;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Page system */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Sparkles Background */
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Decorative Sheep */
+        .decorative-sheep {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatSheep 4s ease-in-out infinite;
+        }
+
+        .decorative-sheep img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes floatSheep {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #d4a5a5;
+            opacity: 0;
+            animation: twinkle 4s infinite;
+            font-size: 1rem;
+        }
+
+        .sparkle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; font-size: 0.7rem; }
+        .sparkle:nth-child(3) { top: 35%; left: 10%; animation-delay: 2s; font-size: 1.2rem; }
+        .sparkle:nth-child(4) { top: 50%; left: 85%; animation-delay: 0.5s; }
+        .sparkle:nth-child(5) { top: 65%; left: 20%; animation-delay: 1.5s; font-size: 0.8rem; }
+        .sparkle:nth-child(6) { top: 75%; left: 70%; animation-delay: 2.5s; }
+        .sparkle:nth-child(7) { top: 85%; left: 40%; animation-delay: 1.2s; font-size: 1.1rem; }
+        .sparkle:nth-child(8) { top: 15%; left: 50%; animation-delay: 3s; font-size: 0.9rem; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 0.6; transform: scale(1) rotate(180deg); }
+        }
+
+        /* Header Styles */
+        header {
+            padding: 40px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Decorative corner flourishes */
+        header::before,
+        header::after {
+            content: '◦';
+            position: absolute;
+            color: #d4a5a5;
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        header::before {
+            top: 0;
+            left: 0;
+        }
+
+        header::after {
+            top: 0;
+            right: 0;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            font-family: 'Katibeh', serif;
+            font-size: 2.5rem;
+            color: #c77b7b;
+            font-weight: 400;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .logo h1::after {
+            content: '✦';
+            position: absolute;
+            right: -30px;
+            top: -5px;
+            font-size: 0.7rem;
+            color: #d4a5a5;
+            animation: sparkleRotate 3s infinite;
+        }
+
+        @keyframes sparkleRotate {
+            0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.6; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
+        }
+
+        .logo p {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 0.9rem;
+            color: #8b6f5e;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            font-family: 'Katibeh', serif;
+            text-decoration: none;
+            color: #c77b7b;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: #d98989;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            color: #a05f5f;
+        }
+
+        /* Hover sparkle effect */
+        nav a::after {
+            content: '✦';
+            position: absolute;
+            right: -15px;
+            top: -8px;
+            font-size: 0.6rem;
+            color: #d4a5a5;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        nav a:hover::after {
+            opacity: 1;
+            transform: rotate(360deg);
+        }
+
+        /* Decorative Line */
+        .decorative-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, 
+                transparent, 
+                #c77b7b 20%, 
+                #c77b7b 48%, 
+                transparent 48%, 
+                transparent 52%, 
+                #c77b7b 52%, 
+                #c77b7b 80%, 
+                transparent);
+            position: relative;
+            margin: 20px 0 60px;
+        }
+
+        .decorative-line::after {
+            content: '✦';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #c77b7b;
+            font-size: 1.5rem;
+            background-color: #f5f1ed;
+            padding: 0 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* HOME PAGE - Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 60vh;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        /* Decorative corners for hero section */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid #d4a5a5;
+            opacity: 0.3;
+        }
+
+        .hero::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+        }
+
+        .hero::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+            border-bottom-right-radius: 10px;
+        }
+
+        .hero-text {
+            position: relative;
+        }
+
+        .hero-text h2 {
+            font-family: 'Katibeh', serif;
+            font-size: 4.5rem;
+            color: #8b6f5e;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .hero-text h2::before {
+            content: '◦';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            color: #d4a5a5;
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .hero-text p {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.2rem;
+            color: #8b6f5e;
+            margin-bottom: 30px;
+            max-width: 500px;
+            font-weight: 400;
+        }
+
+        .hero-text .philosophy {
+            font-style: italic;
+            margin-top: 50px;
+            position: relative;
+            padding-left: 20px;
+            font-weight: 300;
+        }
+
+        .hero-text .philosophy::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #d4a5a5;
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-placeholder {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient overlay on image */
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* ABOUT ME PAGE */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 60vh;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image-placeholder {
+            width: 500px;
+            height: 600px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f1ed 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient overlay on about image */
+        .about-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(212, 165, 165, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        .about-content {
+            position: relative;
+        }
+
+        .about-content h2 {
+            font-family: 'Katibeh', serif;
+            font-size: 4.5rem;
+            color: #8b6f5e;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .about-content h2::after {
+            content: '✦';
+            position: absolute;
+            right: -40px;
+            top: 10px;
+            color: #d4a5a5;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: sparkleRotate 3s infinite;
+        }
+
+        .about-content p {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.2rem;
+            color: #8b6f5e;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        /* Decorative corners for about section */
+        .about-section::before,
+        .about-section::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid #d4a5a5;
+            opacity: 0.3;
+        }
+
+        .about-section::before {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+            border-top-right-radius: 10px;
+        }
+
+        .about-section::after {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+            border-bottom-left-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h2 {
+                font-size: 3.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 3.5rem;
+            }
+
+            nav ul {
+                gap: 30px;
+            }
+
+            .image-placeholder {
+                width: 350px;
+                height: 350px;
+            }
+
+            .about-image-placeholder {
+                width: 350px;
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+
+            .about-content h2 {
+                font-size: 2.8rem;
+            }
+
+            .about-content h2::after {
+                right: -30px;
+                top: 5px;
+                font-size: 1.2rem;
+            }
+
+            .hero-text h2::before {
+                left: 0;
+                top: -30px;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .about-content p {
+                font-size: 1.1rem;
+            }
+
+            .image-placeholder {
+                width: 300px;
+                height: 300px;
+            }
+
+            .about-image-placeholder {
+                width: 300px;
+                height: 400px;
+            }
+
+            .sparkle {
+                font-size: 0.8rem;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .decorative-sheep {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating sparkles background -->
+    <div class="sparkles">
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✦</div>
+    </div>
+
+    <!-- Decorative Sheep -->
+    <div class="decorative-sheep">
+        <img src="Sheepy sheep.png" alt="Decorative sheep">
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo" onclick="showPage('home')">
+                <h1>Noris Martinez</h1>
+                <p>Portfolio</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a onclick="showPage('portfolio')" class="nav-link" data-page="portfolio">Portfolio</a></li>
+                    <li><a onclick="showPage('about')" class="nav-link" data-page="about">About Me</a></li>
+                    <li><a onclick="showPage('contact')" class="nav-link" data-page="contact">Contacts</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="decorative-line"></div>
+
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-text">
+                    <h2>Hello, I am Noris Martinez</h2>
+                    <p>Leader by nature - ready to guide & work for the common good.</p>
+                    <p class="philosophy">My philosophy is "Learning is a constant process, and it doesn't end here."</p>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT ME PAGE -->
+        <div id="about" class="page">
+            <section class="about-section">
+                <div class="about-image">
+                    <div class="about-image-placeholder"></div>
+                </div>
+                <div class="about-content">
+                    <h2>About me</h2>
+                    <p>I am a 22 year old foreign student from Honduras, Central America.</p>
+                    <p>Studying in Peter the Great Saint Petersburg Polytechnic University, my program is International Business (in English), currently studying on third year.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- PORTFOLIO PAGE (Placeholder) -->
+        <div id="portfolio" class="page">
+            <section class="hero">
+                <div class="hero-text">
+                    <h2>Portfolio</h2>
+                    <p>Coming soon...</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACTS PAGE (Placeholder) -->
+        <div id="contact" class="page">
+            <section class="hero">
+                <div class="hero-text">
+                    <h2>Contacts</h2>
+                    <p>Coming soon...</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
