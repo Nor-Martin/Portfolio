@@ -1318,6 +1318,240 @@
                 padding-bottom: 0;
             }
         }
+            /* TESTIMONIALS SECTION */
+            .testimonials-section {
+                margin-top: 80px;
+                padding: 60px 0;
+                position: relative;
+            }
+
+            .testimonials-section h3 {
+                font-family: 'Katibeh', serif;
+                font-size: 3rem;
+                color: #8b6f5e;
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: 50px;
+                letter-spacing: 1px;
+                position: relative;
+            }
+
+            .testimonials-section h3::after {
+                content: '✦';
+                position: absolute;
+                right: 35%;
+                top: -10px;
+                color: #d4a5a5;
+                font-size: 1.2rem;
+                opacity: 0.6;
+                animation: sparkleRotate 3s infinite;
+            }
+
+            .testimonials-container {
+                position: relative;
+                max-width: 1000px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .testimonials-wrapper {
+                display: flex;
+                transition: transform 0.5s ease;
+            }
+
+            .testimonial-card {
+                min-width: 100%;
+                padding: 40px;
+                background-color: rgba(212, 165, 165, 0.08);
+                border-radius: 15px;
+                border: 2px solid rgba(212, 165, 165, 0.3);
+                position: relative;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            }
+
+            .testimonial-card::before {
+                content: '"';
+                position: absolute;
+                top: 20px;
+                left: 30px;
+                font-size: 5rem;
+                color: #d4a5a5;
+                opacity: 0.3;
+                font-family: Georgia, serif;
+                line-height: 1;
+            }
+
+            .testimonial-quote {
+                font-family: 'Zen Maru Gothic', sans-serif;
+                font-size: 1.2rem;
+                color: #8b6f5e;
+                line-height: 1.8;
+                font-style: italic;
+                margin-bottom: 30px;
+                padding-left: 40px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .testimonial-author {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding-left: 40px;
+            }
+
+            .author-image {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
+                overflow: hidden;
+                border: 2px solid #d4a5a5;
+                flex-shrink: 0;
+            }
+
+            .author-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .author-info h4 {
+                font-family: 'Katibeh', serif;
+                font-size: 1.5rem;
+                color: #8b6f5e;
+                margin: 0;
+                letter-spacing: 0.5px;
+            }
+
+            .author-info p {
+                font-family: 'Zen Maru Gothic', sans-serif;
+                font-size: 0.95rem;
+                color: #a08070;
+                margin: 5px 0 0 0;
+            }
+
+            /* Navigation Dots */
+            .testimonial-dots {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(212, 165, 165, 0.3);
+                cursor: pointer;
+                transition: all 0.3s;
+                border: none;
+                padding: 0;
+            }
+
+            .dot.active {
+                background-color: #c77b7b;
+                transform: scale(1.2);
+            }
+
+            .dot:hover {
+                background-color: #d4a5a5;
+            }
+
+            /* Navigation Arrows */
+            .testimonial-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(245, 241, 237, 0.9);
+                border: 2px solid #d4a5a5;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s;
+                z-index: 10;
+            }
+
+            .testimonial-nav:hover {
+                background-color: #c77b7b;
+                border-color: #c77b7b;
+            }
+
+            .testimonial-nav:hover::before {
+                color: #f5f1ed;
+            }
+
+            .testimonial-nav.prev {
+                left: -20px;
+            }
+
+            .testimonial-nav.next {
+                right: -20px;
+            }
+
+            .testimonial-nav.prev::before {
+                content: '‹';
+                font-size: 2rem;
+                color: #c77b7b;
+                transition: color 0.3s;
+            }
+
+            .testimonial-nav.next::before {
+                content: '›';
+                font-size: 2rem;
+                color: #c77b7b;
+                transition: color 0.3s;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .testimonials-section h3 {
+                    font-size: 2.5rem;
+                }
+                
+                .testimonial-card {
+                    padding: 30px 20px;
+                }
+                
+                .testimonial-quote {
+                    font-size: 1.1rem;
+                    padding-left: 20px;
+                }
+                
+                .testimonial-author {
+                    padding-left: 20px;
+                }
+                
+                .testimonial-nav {
+                    width: 40px;
+                    height: 40px;
+                }
+                
+                .testimonial-nav.prev {
+                    left: -10px;
+                }
+                
+                .testimonial-nav.next {
+                    right: -10px;
+                }
+            }
+
+            .testimonials-section {
+                width: 100%;
+                max-width: 1200px;
+                margin: 80px auto 0 auto;
+                padding: 60px 40px;
+            }
+
+            .testimonials-container {
+                max-width: 900px;
+                margin: 5 auto;
+            }
 
         /* Smooth scroll */
         html {
@@ -1517,8 +1751,84 @@
                     <p>Studying in Peter the Great Saint Petersburg Polytechnic University, my program is International Business (in English), currently studying on third year.</p>
                 </div>
             </section>
-        </div>
+        <!-- Testimonials Section -->
+                <div class="testimonials-section">
+                    <h3>Recommendations</h3>
+                    <div class="testimonials-container">
+                        <div class="testimonial-nav prev" onclick="changeTestimonial(-1)"></div>
+                        <div class="testimonial-nav next" onclick="changeTestimonial(1)"></div>
+                        
+                        <div class="testimonials-wrapper" id="testimonialsWrapper">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote">
+                                    Noris is an exceptional leader with a natural ability to inspire and guide teams. Her dedication to learning and growth is truly admirable, and she brings a unique international perspective to every project.
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <!-- Add person's photo here: <img src="person1.jpg" alt="Person Name"> -->
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Professor Name</h4>
+                                        <p>Title, University Name</p>
+                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
+                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
+                                            *Available upon request for reference
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- Testimonial 2 -->
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote">
+                                    Working with Noris has been a pleasure. She demonstrates strong business acumen and excellent communication skills. Her trilingual abilities and cross-cultural understanding make her a valuable asset.
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <!-- Add person's photo here: <img src="person2.jpg" alt="Person Name"> -->
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Professor Name</h4>
+                                        <p>Title, University Name</p>
+                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
+                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
+                                            *Available upon request for reference
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-card">
+                                <p class="testimonial-quote">
+                                    Noris's commitment to excellence and her positive attitude are contagious. She approaches every challenge with determination and grace, making her an outstanding team member and leader.
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <!-- Add person's photo here: <img src="person3.jpg" alt="Person Name"> -->
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Professor Name</h4>
+                                        <p>Title, University Name</p>
+                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
+                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
+                                            *Available upon request for reference
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Dots -->
+                        <div class="testimonial-dots">
+                            <button class="dot active" onclick="goToTestimonial(0)"></button>
+                            <button class="dot" onclick="goToTestimonial(1)"></button>
+                            <button class="dot" onclick="goToTestimonial(2)"></button>
+                        </div>
+                    </div>
+                </div>
+        </div>
         <!-- RESUME PAGE -->
         <div id="resume" class="page">
             <section class="resume-section">
@@ -1699,6 +2009,46 @@
                 console.log('Language switched to:', lang);
             });
         });
+        // Testimonials Carousel
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+
+        function changeTestimonial(direction) {
+            currentTestimonial += direction;
+            
+            if (currentTestimonial < 0) {
+                currentTestimonial = totalTestimonials - 1;
+            } else if (currentTestimonial >= totalTestimonials) {
+                currentTestimonial = 0;
+            }
+            
+            updateTestimonialDisplay();
+        }
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonialDisplay();
+        }
+
+        function updateTestimonialDisplay() {
+            const wrapper = document.getElementById('testimonialsWrapper');
+            const dots = document.querySelectorAll('.dot');
+            
+            wrapper.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-rotate testimonials every 5 seconds
+        setInterval(() => {
+            changeTestimonial(1);
+        }, 5000);
     </script>
 </body>
 </html>
