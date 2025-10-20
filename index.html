@@ -227,17 +227,18 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(245, 241, 237, 0.805);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(212, 165, 165, 0.6);
-            border-radius: 8px;
+            background: rgba(245, 241, 237, 0.497);  /* More transparent */
+            backdrop-filter: blur(15px) saturate(180%);  /* Stronger blur + saturation */
+            -webkit-backdrop-filter: blur(15px) saturate(180%);  /* Safari support */
+            border: 1px solid rgba(212, 165, 165, 0.4);  /* More subtle border */
+            border-radius: 12px;  /* Slightly rounder */
             padding: 15px 0;
             min-width: 200px;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
             transform: translateX(-50%) translateY(-10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  /* Softer shadow */
             z-index: 100;
             margin-top: 15px;
         }
@@ -446,8 +447,8 @@
         }
 
         .image-placeholder {
-            width: 450px;
-            height: 450px;
+            width: 600px !important;
+            height: 450px !important;
             background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -629,7 +630,7 @@
             left: 0;
             right: 0;
             padding: 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(250, 225, 225, 0.623) 0%, transparent 100%);
             transform: translateY(100%);
             transition: transform 0.4s ease;
         }
@@ -1364,6 +1365,7 @@
                 max-width: 1000px;
                 margin: 0 auto;
                 overflow: hidden;
+                padding: 0 0px 40px;
             }
 
             .testimonials-wrapper {
@@ -1476,48 +1478,57 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                background-color: rgba(245, 241, 237, 0.9);
-                border: 2px solid #d4a5a5;
-                border-radius: 50%;
-                width: 45px;
-                height: 45px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                background: none;  /* Remove background */
+                border: none;      /* Remove border */
                 cursor: pointer;
                 transition: all 0.3s;
                 z-index: 10;
-            }
-
-            .testimonial-nav:hover {
-                background-color: #c77b7b;
-                border-color: #c77b7b;
+                padding: 10px;
             }
 
             .testimonial-nav:hover::before {
-                color: #f5f1ed;
+                color: #a05f5f;  /* Darker on hover */
+                transform: scale(1.2);  /* Slightly bigger on hover */
             }
 
             .testimonial-nav.prev {
-                left: -20px;
+                left: 5px;
             }
 
             .testimonial-nav.next {
-                right: -20px;
+                right: 5px;
             }
 
             .testimonial-nav.prev::before {
                 content: '‹';
-                font-size: 2rem;
+                font-size: 3rem;  /* Bigger arrow */
                 color: #c77b7b;
-                transition: color 0.3s;
+                transition: all 0.3s;
+                display: block;
             }
 
             .testimonial-nav.next::before {
                 content: '›';
-                font-size: 2rem;
+                font-size: 3rem;  /* Bigger arrow */
                 color: #c77b7b;
-                transition: color 0.3s;
+                transition: all 0.3s;
+                display: block;
+            }
+
+            /* Mobile arrows */
+            @media (max-width: 768px) {
+                .testimonial-nav.prev::before,
+                .testimonial-nav.next::before {
+                    font-size: 2.5rem;  /* Slightly smaller on mobile */
+                }
+                
+                .testimonial-nav.prev {
+                    left: 0;
+                }
+                
+                .testimonial-nav.next {
+                    right: 0;
+                }
             }
 
             /* Responsive */
@@ -1526,17 +1537,42 @@
                     font-size: 2.5rem;
                 }
                 
+                .testimonials-section {
+                    padding: 60px 20px;  /* Add this */
+                }
+                
+                .testimonials-container {
+                    padding: 0 50px;  /* Add this - less padding on mobile */
+                }
+                
                 .testimonial-card {
                     padding: 30px 20px;
                 }
                 
+                .testimonial-card::before {
+                    font-size: 3rem;  /* Add this - smaller quote mark */
+                    left: 15px;       /* Add this */
+                }
+                
                 .testimonial-quote {
-                    font-size: 1.1rem;
+                    font-size: 1rem;    /* Make smaller on mobile */
                     padding-left: 20px;
+                    line-height: 1.6;   /* Add this */
                 }
                 
                 .testimonial-author {
                     padding-left: 20px;
+                    flex-direction: column;  /* Add this - stack vertically */
+                    align-items: flex-start; /* Add this */
+                    gap: 10px;               /* Add this */
+                }
+                
+                .author-info h4 {
+                    font-size: 1.2rem;  /* Add this - smaller name */
+                }
+                
+                .author-info p {
+                    font-size: 0.85rem;  /* Add this - smaller text */
                 }
                 
                 .testimonial-nav {
@@ -1625,7 +1661,9 @@
                     <p class="philosophy">My philosophy is "Learning is a constant process, and it doesn't end here."</p>
                 </div>
                 <div class="hero-image">
-                    <div class="image-placeholder"></div>
+                    <div class="image-placeholder">
+                    <img src="Profphoto.jpg" alt="Noris Martinez" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                </div>
                 </div>
             </section>
         </div>
@@ -1635,25 +1673,25 @@
             <section class="portfolio-section">
                 <h2>Portfolio</h2>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item" onclick="showPage('project1')">
+                    <div class="portfolio-item" onclick="showPage('project1')" style="background-image: url('project1.jpg'); background-size: cover; background-position: center;">
                         <div class="portfolio-item-content">
                             <h3>Title 1</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project2')">
-                        <div class="portfolio-item-content">
+                     <div class="portfolio-item" onclick="showPage('project2')" style="background-image: url('project2.jpg'); background-size: cover; background-position: center;">
+                            <div class="portfolio-item-content">
                             <h3>Title 2</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project3')">
+                    <div class="portfolio-item" onclick="showPage('project3')" style="background-image: url('project3.jpg'); background-size: cover; background-position: center;">
                         <div class="portfolio-item-content">
                             <h3>Title 3</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project4')">
+                    <div class="portfolio-item" onclick="showPage('project4')" style="background-image: url('project4.jpg'); background-size: cover; background-position: center;">
                         <div class="portfolio-item-content">
                             <h3>Title 4</h3>
                             <p>Brief description of the project and your role</p>
@@ -1669,7 +1707,9 @@
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2>Title 1</h2>
                 <div class="project-content">
-                    <div class="project-image-large"></div>
+                    <div class="project-image-large">
+                        <img src="project1-detail.jpg" alt="Project 1 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
                         <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
@@ -1691,7 +1731,9 @@
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2>Title 2</h2>
                 <div class="project-content">
-                    <div class="project-image-large"></div>
+                    <div class="project-image-large">
+                        <img src="project2-detail.jpg" alt="Project 2 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
                         <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
@@ -1713,7 +1755,9 @@
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2>Title 3</h2>
                 <div class="project-content">
-                    <div class="project-image-large"></div>
+                    <div class="project-image-large">
+                        <img src="project3-detail.jpg" alt="Project 3 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
                         <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
@@ -1735,7 +1779,9 @@
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2>Title 4</h2>
                 <div class="project-content">
-                    <div class="project-image-large"></div>
+                    <div class="project-image-large">
+                        <img src="project3-detail.jpg" alt="Project 4 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
                         <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
@@ -1755,7 +1801,13 @@
         <div id="about" class="page">
             <section class="about-section">
                 <div class="about-image">
-                    <div class="about-image-placeholder"></div>
+                    <div class="about-image-placeholder">
+                     <video autoplay muted loop playsinline
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                        <source src="Aboutmevideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                 </div>
                 <div class="about-content">
                     <h2>About me</h2>
@@ -1911,7 +1963,7 @@
                             <div class="skill-item">Project Management</div>
                         </div>
                     </div>
-
+                    
                     <!-- Certifications Section -->
                     <div class="resume-block">
                         <h3>My Certifications</h3>
@@ -1924,7 +1976,7 @@
                             <p>Brief description of what this certification covers and its relevance to your field.</p>
                             <a href="#" class="view-cert-btn">View Certificate</a>
                         </div>
-                        
+
                         <div class="resume-item">
                             <div class="resume-item-header">
                                 <h4>Another Certification</h4>
@@ -1934,6 +1986,29 @@
                             <p>Description of this certification and what skills or knowledge it demonstrates.</p>
                             <a href="#" class="view-cert-btn">View Certificate</a>
                         </div>
+
+                    <!-- Extracurricular Activities Section -->
+                    <div class="resume-block">
+                        <h3>Extracurricular Activities</h3>
+                        
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <h4>Activity/Organization Name</h4>
+                                <span class="resume-item-date">2022 - Present</span>
+                            </div>
+                            <p class="resume-item-subtitle">Your Role/Position</p>
+                            <p>Brief description of your involvement, responsibilities, and what you achieved or learned from this activity.</p>
+                        </div>
+                        
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <h4>Another Activity/Volunteer Work</h4>
+                                <span class="resume-item-date">2023 - 2024</span>
+                            </div>
+                            <p class="resume-item-subtitle">Your Role</p>
+                            <p>Description of your participation and impact.</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>
