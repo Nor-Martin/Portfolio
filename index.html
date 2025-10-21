@@ -1578,65 +1578,87 @@
             }
 
             /* Responsive */
-            @media (max-width: 768px) {
-                .testimonials-section h3 {
-                    font-size: 2.5rem;
-                }
-                
-                .testimonials-section {
-                    padding: 60px 0;
-                    margin-top: 60px;
-                }
-                
-                .testimonials-container {
-                    padding: 0 50px 40px;
-                    overflow: visible;
-                }
-                
-                .testimonial-card {
-                    padding: 30px 20px;
-                    min-width: calc(100vw - 100px);
-                }
-                
-                .testimonial-card::before {
-                    font-size: 3rem;  /* Add this - smaller quote mark */
-                    left: 15px;       /* Add this */
-                }
-                
-                .testimonial-quote {
-                    font-size: 1rem;    /* Make smaller on mobile */
-                    padding-left: 20px;
-                    line-height: 1.6;   /* Add this */
-                }
-                
-                .testimonial-author {
-                    padding-left: 20px;
-                    flex-direction: column;  /* Add this - stack vertically */
-                    align-items: flex-start; /* Add this */
-                    gap: 10px;               /* Add this */
-                }
-                
-                .author-info h4 {
-                    font-size: 1.2rem;  /* Add this - smaller name */
-                }
-                
-                .author-info p {
-                    font-size: 0.85rem;  /* Add this - smaller text */
-                }
-                
-                .testimonial-nav {
-                    width: 40px;
-                    height: 40px;
-                }
-                
-                .testimonial-nav.prev {
-                    left: -10px;
-                }
-                
-                .testimonial-nav.next {
-                    right: -10px;
-                }
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 40px 0;
+                margin-top: 60px;
+                overflow: hidden;
             }
+            
+            .testimonials-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+            
+            .testimonials-container {
+                padding: 0 50px 40px;
+                max-width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .testimonials-wrapper {
+                display: flex;
+                transition: transform 0.5s ease;
+                width: 100%;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+                min-width: 100%;
+                flex-shrink: 0;
+                box-sizing: border-box;
+            }
+            
+            .testimonial-card::before {
+                font-size: 2.5rem;
+                left: 15px;
+                top: 15px;
+            }
+            
+            .testimonial-quote {
+                font-size: 0.95rem;
+                padding-left: 15px;
+                padding-right: 15px;
+                line-height: 1.7;
+            }
+            
+            .testimonial-author {
+                padding-left: 15px;
+                padding-right: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .author-info h4 {
+                font-size: 1.15rem;
+            }
+            
+            .author-info p {
+                font-size: 0.85rem;
+                word-break: break-word;
+                max-width: 100%;
+            }
+            
+            .testimonial-nav {
+                position: absolute;
+                top: 45%;
+            }
+            
+            .testimonial-nav.prev {
+                left: 5px;
+            }
+            
+            .testimonial-nav.next {
+                right: 5px;
+            }
+            
+            .testimonial-nav.prev::before,
+            .testimonial-nav.next::before {
+                font-size: 2.5rem;
+            }
+        }
 
             .testimonials-section {
                 width: 100%;
