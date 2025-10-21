@@ -1380,7 +1380,7 @@
             /* TESTIMONIALS SECTION */
             .testimonials-section {
                 margin-top: 80px;
-                padding: 60px 0;
+                padding: 60px 40px;
                 position: relative;
             }
 
@@ -1408,25 +1408,36 @@
 
             .testimonials-container {
                 position: relative;
-                max-width: 1000px;
+                max-width: 900px;
                 margin: 0 auto;
-                overflow: hidden;
-                padding: 0 0px 40px;
+                min-height: 400px;
             }
 
             .testimonials-wrapper {
-                display: flex;
-                transition: transform 0.5s ease;
+                position: relative;
+                width: 100%;
+                min-height: 400px;
             }
 
             .testimonial-card {
-                min-width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
                 padding: 40px;
                 background-color: rgba(212, 165, 165, 0.08);
                 border-radius: 15px;
                 border: 2px solid rgba(212, 165, 165, 0.3);
-                position: relative;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.6s ease, visibility 0.6s ease;
+            }
+
+            .testimonial-card.active {
+                opacity: 1;
+                visibility: visible;
+                z-index: 2;
             }
 
             .testimonial-card::before {
@@ -1496,7 +1507,9 @@
                 display: flex;
                 justify-content: center;
                 gap: 12px;
-                margin-top: 30px;
+                margin-top: 40px;
+                position: relative;
+                z-index: 10;
             }
 
             .dot {
@@ -1524,8 +1537,8 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                background: none;  /* Remove background */
-                border: none;      /* Remove border */
+                background: none;
+                border: none;
                 cursor: pointer;
                 transition: all 0.3s;
                 z-index: 10;
@@ -1533,21 +1546,21 @@
             }
 
             .testimonial-nav:hover::before {
-                color: #a05f5f;  /* Darker on hover */
-                transform: scale(1.2);  /* Slightly bigger on hover */
+                color: #a05f5f;
+                transform: scale(1.2);
             }
 
             .testimonial-nav.prev {
-                left: 5px;
+                left: -50px;
             }
 
             .testimonial-nav.next {
-                right: 5px;
+                right: -50px;
             }
 
             .testimonial-nav.prev::before {
                 content: '‹';
-                font-size: 3rem;  /* Bigger arrow */
+                font-size: 3rem;
                 color: #c77b7b;
                 transition: all 0.3s;
                 display: block;
@@ -1555,17 +1568,60 @@
 
             .testimonial-nav.next::before {
                 content: '›';
-                font-size: 3rem;  /* Bigger arrow */
+                font-size: 3rem;
                 color: #c77b7b;
                 transition: all 0.3s;
                 display: block;
             }
 
-            /* Mobile arrows */
+            /* Mobile Responsive */
             @media (max-width: 768px) {
-                .testimonial-nav.prev::before,
-                .testimonial-nav.next::before {
-                    font-size: 2.5rem;  /* Slightly smaller on mobile */
+                .testimonials-section {
+                    padding: 40px 20px;
+                    margin-top: 60px;
+                }
+                
+                .testimonials-section h3 {
+                    font-size: 2.5rem;
+                }
+                
+                .testimonials-container {
+                    min-height: 450px;
+                }
+                
+                .testimonials-wrapper {
+                    min-height: 450px;
+                }
+                
+                .testimonial-card {
+                    padding: 30px 20px;
+                }
+                
+                .testimonial-card::before {
+                    font-size: 3rem;
+                    left: 15px;
+                    top: 15px;
+                }
+                
+                .testimonial-quote {
+                    font-size: 1rem;
+                    padding-left: 15px;
+                    line-height: 1.6;
+                }
+                
+                .testimonial-author {
+                    padding-left: 15px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+                
+                .author-info h4 {
+                    font-size: 1.2rem;
+                }
+                
+                .author-info p {
+                    font-size: 0.85rem;
                 }
                 
                 .testimonial-nav.prev {
@@ -1574,6 +1630,11 @@
                 
                 .testimonial-nav.next {
                     right: 0;
+                }
+                
+                .testimonial-nav.prev::before,
+                .testimonial-nav.next::before {
+                    font-size: 2.5rem;
                 }
             }
 
@@ -2167,46 +2228,57 @@
                 console.log('Language switched to:', lang);
             });
         });
-        // Testimonials Carousel
-        let currentTestimonial = 0;
-        const totalTestimonials = 3;
+        // Testimonials Carousel with Fade
+let currentTestimonial = 0;
+const totalTestimonials = 3;
 
-        function changeTestimonial(direction) {
-            currentTestimonial += direction;
-            
-            if (currentTestimonial < 0) {
-                currentTestimonial = totalTestimonials - 1;
-            } else if (currentTestimonial >= totalTestimonials) {
-                currentTestimonial = 0;
-            }
-            
-            updateTestimonialDisplay();
+function changeTestimonial(direction) {
+    const cards = document.querySelectorAll('.testimonial-card');
+    cards[currentTestimonial].classList.remove('active');
+    
+    currentTestimonial += direction;
+    
+    if (currentTestimonial < 0) {
+        currentTestimonial = totalTestimonials - 1;
+    } else if (currentTestimonial >= totalTestimonials) {
+        currentTestimonial = 0;
+    }
+    
+    cards[currentTestimonial].classList.add('active');
+    updateDots();
+}
+
+function goToTestimonial(index) {
+    const cards = document.querySelectorAll('.testimonial-card');
+    cards[currentTestimonial].classList.remove('active');
+    currentTestimonial = index;
+    cards[currentTestimonial].classList.add('active');
+    updateDots();
+}
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        if (index === currentTestimonial) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
         }
+    });
+}
 
-        function goToTestimonial(index) {
-            currentTestimonial = index;
-            updateTestimonialDisplay();
-        }
+// Initialize first testimonial
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.testimonial-card');
+    if (cards.length > 0) {
+        cards[0].classList.add('active');
+    }
+});
 
-        function updateTestimonialDisplay() {
-            const wrapper = document.getElementById('testimonialsWrapper');
-            const dots = document.querySelectorAll('.dot');
-            
-            wrapper.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-            
-            dots.forEach((dot, index) => {
-                if (index === currentTestimonial) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        // Auto-rotate testimonials every 5 seconds
-        setInterval(() => {
-            changeTestimonial(1);
-        }, 5000);
+// Auto-rotate testimonials every 5 seconds
+setInterval(() => {
+    changeTestimonial(1);
+}, 5000);
     </script>
 </body>
 </html>
