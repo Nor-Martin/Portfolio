@@ -47,6 +47,15 @@
             z-index: 1;
         }
 
+        /* Control de visibilidad de logos */
+        .logo-mobile {
+            display: none;
+        }
+
+        .logo-desktop {
+            display: block;
+        }
+
         /* Page system */
         .page {
             display: none;
@@ -245,6 +254,15 @@
             background: linear-gradient(to right, transparent, #c77b7b 20%, #c77b7b 48%, transparent 48%, transparent 52%, #c77b7b 52%, #c77b7b 80%, transparent);
             position: relative;
             margin: 20px 0 60px;
+        }
+
+        .decorative-line {
+            margin: 15px 0 30px;
+        }
+
+        .decorative-line::after {
+            font-size: 1.2rem;
+            padding: 0 10px;
         }
 
         .decorative-line::after {
@@ -745,62 +763,78 @@
         }
 
         .testimonial-card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px;
-            background-color: rgba(212, 165, 165, 0.08);
-            border-radius: 15px;
-            border: 2px solid rgba(212, 165, 165, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.6s ease;
+            background: rgba(212, 165, 165, 0.15);
+            border-radius: 20px;
+            padding: 40px 35px;
+            border: 1px solid rgba(212, 165, 165, 0.25);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .testimonial-card.active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: rgba(199, 123, 123, 0.4);
         }
 
         .testimonial-quote {
-            font-size: 1.2rem;
-            color: #8b6f5e;
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 30px;
-            padding-left: 40px;
+            font-size: 1.05rem;
+            color: #a08070;
+            line-height: 1.75;
+            font-style: normal;
+            text-align: left;
+            margin-bottom: 10px;
         }
 
         .testimonial-author {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            padding-left: 40px;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 165, 165, 0.25);
         }
 
         .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
-            border: 2px solid #d4a5a5;
-            flex-shrink: 0;
+            display: none;
         }
 
         .author-info h4 {
             font-family: 'Katibeh', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #8b6f5e;
             margin: 0;
             letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         .author-info p {
             font-size: 0.95rem;
             color: #a08070;
-            margin: 5px 0 0 0;
+            margin: 3px 0;
+            line-height: 1.5;
+        }
+
+        .author-email {
+            font-size: 0.9rem !important;
+            color: #8b6f5e !important;
+            margin: 5px 0 !important;
+        }
+
+        .author-note {
+            font-size: 0.85rem !important;
+            color: #a08070 !important;
+            font-style: italic !important;
+            margin: 8px 0 0 0 !important;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .testimonial-dots {
@@ -810,20 +844,6 @@
             margin-top: 40px;
         }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(212, 165, 165, 0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-        }
-
-        .dot.active {
-            background-color: #c77b7b;
-            transform: scale(1.2);
-        }
 
         /* Resume */
         .resume-section {
@@ -1119,6 +1139,25 @@
                 gap: 20px;
             }
 
+            /* Fondo alternativo para móvil */
+            body {
+                background-image: url('fondocel.png');
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll;
+                background-color: #f5f1ed;
+            }
+            /* Ocultar logo desktop y mostrar logo móvil */
+            .logo-desktop {
+                display: none;
+            }
+
+            .logo-mobile {
+                display: block;
+                width: 50px;
+                height: 50px;
+            }
+
             .hero-text h2,
             .about-content h2,
             .section-title {
@@ -1164,14 +1203,35 @@
                 border-bottom: none;
             }
 
-            .testimonials-container {
-                padding: 0 40px;
-                min-height: 500px;
+           .testimonials-section {
+            margin-top: 60px;
+            padding: 40px 0;
+            }
+
+            .testimonials-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 35px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
 
             .testimonial-card {
-                padding: 30px 20px;
-                min-height: 450px;
+                padding: 30px 25px;
+            }
+
+            .testimonial-quote {
+                font-size: 0.98rem;
+            }
+
+            .author-info h4 {
+                font-size: 1.4rem;
+            }
+
+            .author-info p {
+                font-size: 0.88rem;
             }
 
             .decorative-sheep {
@@ -1210,7 +1270,8 @@
     <div class="container">
         <header>
             <div class="logo" onclick="showPage('home')">
-                <img src="logo.png" alt="Noris Martinez" loading="eager">
+                <img src="logo.png" alt="Noris Martinez" loading="eager" class="logo-desktop">
+                <img src="logocel.png" alt="Noris Martinez" loading="eager" class="logo-mobile">
             </div>
             <nav>
                 <ul>
@@ -1401,51 +1462,64 @@
             <!-- Testimonials -->
             <div class="testimonials-section">
                 <h3>Recommendations</h3>
-                <div class="testimonials-container">
-                    <div class="testimonial-card active">
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
                         <p class="testimonial-quote">
                             Noris is an exceptional leader with a natural ability to inspire and guide teams. Her dedication to learning and growth is truly admirable.
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-image"></div>
                             <div class="author-info">
                                 <h4>Professor Name</h4>
                                 <p>Title, University Name</p>
+                                <p class="author-email">📧 professor@university.edu</p>
+                                <p class="author-note">*Available upon request for reference</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="testimonial-card">
                         <p class="testimonial-quote">
                             Working with Noris has been a pleasure. She demonstrates strong business acumen and excellent communication skills.
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-image"></div>
                             <div class="author-info">
                                 <h4>Professor Name 2</h4>
                                 <p>Title, University Name</p>
+                                <p class="author-email">📧 professor2@university.edu</p>
+                                <p class="author-note">*Available upon request for reference</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="testimonial-card">
                         <p class="testimonial-quote">
                             Noris's commitment to excellence and her positive attitude are contagious. She approaches every challenge with determination.
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-image"></div>
                             <div class="author-info">
                                 <h4>Professor Name 3</h4>
                                 <p>Title, University Name</p>
+                                <p class="author-email">📧 professor3@university.edu</p>
+                                <p class="author-note">*Available upon request for reference</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-dots">
-                        <button class="dot active" onclick="goToTestimonial(0)"></button>
-                        <button class="dot" onclick="goToTestimonial(1)"></button>
-                        <button class="dot" onclick="goToTestimonial(2)"></button>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            Her analytical skills and creative problem-solving make her an invaluable team member. Noris consistently exceeds expectations.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Professor Name 4</h4>
+                                <p>Title, University Name</p>
+                                <p class="author-email">📧 professor4@university.edu</p>
+                                <p class="author-note">*Available upon request for reference</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- RESUME PAGE -->
         <div id="resume" class="page">
@@ -1624,7 +1698,7 @@
                 dot.classList.toggle('active', index === currentTestimonial);
             });
         }
-
+        
         // Auto-rotate testimonials
         setInterval(() => changeTestimonial(1), 5000);
 
