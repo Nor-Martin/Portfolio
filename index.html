@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- SEO Meta Tags -->
     <meta name="description" content="Noris Martinez - International Business Student | Portfolio showcasing projects, skills, and professional experience">
     <meta name="keywords" content="Noris Martinez, International Business, Portfolio, Resume, Honduras, Saint Petersburg">
     <meta name="author" content="Noris Martinez">
     
-    <!-- Open Graph Meta Tags (for social media sharing) -->
     <meta property="og:title" content="Noris Martinez - Portfolio">
     <meta property="og:description" content="Third-year International Business student with leadership experience and communication skills">
     <meta property="og:image" content="hero-photo.jpg">
@@ -16,23 +14,13 @@
 
     <title>Noris Martinez - Portfolio</title>
     <link rel="icon" type="image/png" href="Sheepfavicon.png">
+    
+    <!-- Optimized: Solo cargar las fuentes que se usan -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        @font-face {
-            font-family: 'Amorthe';
-            src: url('Amorthe-Bold.woff2') format('woff2'),
-                url('Amorthe-Bold.woff') format('woff');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-    </style>
-    <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -42,14 +30,12 @@
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             background-color: #f5f1ed;
-            background-image: url('background.jpg');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-repeat: no-repeat;
             color: #8b6f5e;
             line-height: 1.6;
-            position: relative;
             overflow-x: hidden;
         }
 
@@ -82,7 +68,7 @@
             }
         }
 
-        /* Floating Sparkles Background */
+        /* Sparkles - Optimizado */
         .sparkles {
             position: fixed;
             top: 0;
@@ -93,6 +79,27 @@
             z-index: 0;
         }
 
+        .sparkle {
+            position: absolute;
+            color: #c28686;
+            opacity: 0;
+            animation: twinkle 4s infinite;
+            font-size: 1rem;
+            will-change: opacity, transform;
+        }
+
+        .sparkle:nth-child(1) { top: 13%; left: 5%; animation-delay: 0s; font-size: 1.2rem; }
+        .sparkle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; font-size: 0.7rem; }
+        .sparkle:nth-child(3) { top: 35%; left: 10%; animation-delay: 2s; font-size: 1.2rem; }
+        .sparkle:nth-child(4) { top: 50%; left: 85%; animation-delay: 0.5s; }
+        .sparkle:nth-child(5) { top: 65%; left: 20%; animation-delay: 1.5s; font-size: 0.8rem; }
+        .sparkle:nth-child(6) { top: 75%; left: 70%; animation-delay: 2.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 0.6; transform: scale(1) rotate(180deg); }
+        }
+
         /* Decorative Sheep */
         .decorative-sheep {
             position: fixed;
@@ -101,10 +108,14 @@
             width: 80px;
             height: 80px;
             opacity: 0.75;
-            pointer-events: auto;
             z-index: 0;
             animation: floatSheep 4s ease-in-out infinite;
             cursor: pointer;
+        }
+
+        @keyframes floatSheep {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .decorative-sheep::after {
@@ -122,7 +133,6 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s;
-            font-family: 'Zen Maru Gothic', sans-serif;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         
@@ -136,60 +146,13 @@
             object-fit: contain;
         }
 
-        @keyframes floatSheep {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        .sparkle {
-            position: absolute;
-            color: #c28686;
-            opacity: 0;
-            animation: twinkle 4s infinite;
-            font-size: 1rem;
-        }
-
-        .sparkle:nth-child(1) { top: 13%; left: 5%; animation-delay: 0s; font-size: 1.2rem}
-        .sparkle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; font-size: 0.7rem; }
-        .sparkle:nth-child(3) { top: 35%; left: 10%; animation-delay: 2s; font-size: 1.2rem; }
-        .sparkle:nth-child(4) { top: 50%; left: 85%; animation-delay: 0.5s; }
-        .sparkle:nth-child(5) { top: 65%; left: 20%; animation-delay: 1.5s; font-size: 0.8rem; }
-        .sparkle:nth-child(6) { top: 75%; left: 70%; animation-delay: 2.5s; }
-        .sparkle:nth-child(7) { top: 85%; left: 40%; animation-delay: 1.2s; font-size: 1.1rem; }
-        .sparkle:nth-child(8) { top: 30%; left: 50%; animation-delay: 3s; font-size: 0.9rem; }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 0.6; transform: scale(1) rotate(180deg); }
-        }
-
-        /* Header Styles */
+        /* Header */
         header {
             padding: 40px 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-        }
-
-        /* Decorative corner flourishes */
-        header::before,
-        header::after {
-            content: '❋';
-            position: absolute;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.4;
-        }
-
-        header::before {
-            top: 0;
-            left: 0;
-        }
-
-        header::after {
-            top: 0;
-            right: 0;
         }
 
         .logo {
@@ -199,34 +162,11 @@
         .logo img {
             height: 63px;
             width: auto;
-            display: block;
             transition: transform 0.15s;
         }
 
         .logo img:hover {
             transform: scale(1.02);
-        }
-
-        .logo h1::after {
-            content: '✦';
-            position: absolute;
-            right: -30px;
-            top: -5px;
-            font-size: 0.7rem;
-            color: #d4a5a5;
-            animation: sparkleRotate 3s infinite;
-        }
-
-        @keyframes sparkleRotate {
-            0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.6; }
-            50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
-        }
-
-        .logo p {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 0.9rem;
-            color: #8b6f5e;
-            font-style: italic;
         }
 
         nav ul {
@@ -239,70 +179,12 @@
             position: relative;
         }
 
-        /* Dropdown menu styles */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(245, 241, 237, 0.182);  /* More transparent */
-            backdrop-filter: blur(10px) saturate(180%);  /* Stronger blur + saturation */
-            -webkit-backdrop-filter: blur(10px) saturate(180%);  /* Safari support */
-            border: 1px solid rgba(212, 165, 165, 0.4);  /* More subtle border */
-            border-radius: 12px;  /* Slightly rounder */
-            padding: 15px 0;
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            transform: translateX(-50%) translateY(-10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  /* Softer shadow */
-            z-index: 100;
-            margin-top: 15px;
-        }
-
-        nav li:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu::before {
-            content: '✦';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #d4a5a5;
-            font-size: 1rem;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 25px;
-            font-size: 1.1rem;
-            color: #8b6f5e;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: rgba(232, 223, 214, 0.7);
-            color: #c77b7b;
-            transform: translateY(0) !important;
-        }
-
-        .dropdown-menu a::after {
-            display: none;
-        }
-
         nav a {
             font-family: 'Katibeh', serif;
             text-decoration: none;
             color: #c77b7b;
             font-size: 1.4rem;
             transition: all 0.3s;
-            position: relative;
             cursor: pointer;
             letter-spacing: 0.5px;
         }
@@ -316,36 +198,51 @@
             color: #a05f5f;
         }
 
-        /* Hover sparkle effect */
-        nav a::after {
-            content: '✦';
+        /* Dropdown menu */
+        .dropdown-menu {
             position: absolute;
-            right: -15px;
-            top: -8px;
-            font-size: 0.6rem;
-            color: #d4a5a5;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(245, 241, 237, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 165, 0.4);
+            border-radius: 12px;
+            padding: 15px 0;
+            min-width: 200px;
             opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-top: 15px;
         }
 
-        nav a:hover::after {
+        nav li:hover .dropdown-menu {
             opacity: 1;
-            transform: rotate(360deg);
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            color: #8b6f5e;
+            text-align: center;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(232, 223, 214, 0.7);
+            color: #c77b7b;
+            transform: none;
         }
 
         /* Decorative Line */
         .decorative-line {
             width: 100%;
             height: 2px;
-            background: linear-gradient(to right, 
-                transparent, 
-                #c77b7b 20%, 
-                #c77b7b 48%, 
-                transparent 48%, 
-                transparent 52%, 
-                #c77b7b 52%, 
-                #c77b7b 80%, 
-                transparent);
+            background: linear-gradient(to right, transparent, #c77b7b 20%, #c77b7b 48%, transparent 48%, transparent 52%, #c77b7b 52%, #c77b7b 80%, transparent);
             position: relative;
             margin: 20px 0 60px;
         }
@@ -358,7 +255,6 @@
             transform: translate(-50%, -50%);
             color: #c77b7b;
             font-size: 1.5rem;
-            background-color: #f5f1ed00;
             padding: 0 15px;
             animation: pulse 2s infinite;
         }
@@ -368,7 +264,7 @@
             50% { transform: translate(-50%, -50%) scale(1.1); }
         }
 
-        /* HOME PAGE - Hero Section */
+        /* Hero Section */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -376,38 +272,6 @@
             align-items: center;
             min-height: 60vh;
             padding: 40px 0;
-            position: relative;
-        }
-
-        /* Decorative corners for hero section */
-        .hero::before,
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 2px solid #d4a5a5;
-            opacity: 0.3;
-        }
-
-        .hero::before {
-            top: 0;
-            left: 0;
-            border-right: none;
-            border-bottom: none;
-            border-top-left-radius: 10px;
-        }
-
-        .hero::after {
-            bottom: 0;
-            right: 0;
-            border-left: none;
-            border-top: none;
-            border-bottom-right-radius: 10px;
-        }
-
-        .hero-text {
-            position: relative;
         }
 
         .hero-text h2 {
@@ -417,185 +281,97 @@
             font-weight: 400;
             line-height: 1.2;
             margin-bottom: 40px;
-            position: relative;
             letter-spacing: 1px;
         }
 
-        .hero-text h2::before {
-            content: '❋';
-            position: absolute;
-            left: -40px;
-            top: 0;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.4;
-        }
-
         .hero-text p {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1.2rem;
             color: #8b6f5e;
             margin-bottom: 30px;
             max-width: 500px;
-            font-weight: 400;
         }
 
         .hero-text .philosophy {
             font-style: italic;
             margin-top: 50px;
-            position: relative;
-            padding-left: 20px;
             font-weight: 300;
-        }
-
-        .hero-text .philosophy::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: #d4a5a5;
-            font-size: 0.9rem;
         }
 
         .hero-image {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
 
         .image-placeholder {
-            width: 600px !important;
-            height: 450px !important;
-            background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
+            width: 600px;
+            height: 450px;
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            position: relative;
             overflow: hidden;
         }
 
-        @keyframes shimmer {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* ABOUT ME PAGE */
-        .about-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            min-height: 60vh;
-            padding: 40px 0;
-            position: relative;
-        }
-
-        .about-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .about-image-placeholder {
-            width: 500px;
-            height: 600px;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f1ed 100%);
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-content {
-            position: relative;
-        }
-
-        .about-content h2 {
-            font-family: 'Katibeh', serif;
-            font-size: 4.5rem;
-            color: #8b6f5e;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 40px;
-            position: relative;
-            letter-spacing: 1px;
-        }
-
-        .about-content h2::after {
-            content: '✦';
-            position: absolute;
-            right: -40px;
-            top: 10px;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.6;
-            animation: sparkleRotate 3s infinite;
-        }
-
-        .about-content p {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 1.2rem;
-            color: #8b6f5e;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        /* Decorative corners for about section */
-        .about-section::before,
-        .about-section::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 2px solid #d4a5a5;
-            opacity: 0.3;
-        }
-
-        .about-section::before {
-            top: 0;
-            right: 0;
-            border-left: none;
-            border-bottom: none;
-            border-top-right-radius: 10px;
-        }
-
-        .about-section::after {
-            bottom: 0;
-            left: 0;
-            border-right: none;
-            border-top: none;
-            border-bottom-left-radius: 10px;
-        }
-
-        /* PORTFOLIO PAGE */
-        .portfolio-section {
-            padding: 40px 0 80px;
-            position: relative;
-        }
-
-        .portfolio-section h2 {
+        /* Section Titles */
+        .section-title {
             font-family: 'Katibeh', serif;
             font-size: 4.5rem;
             color: #8b6f5e;
             font-weight: 400;
             text-align: center;
             margin-bottom: 60px;
-            position: relative;
             letter-spacing: 1px;
         }
 
-        .portfolio-section h2::after {
-            content: '✦';
-            position: absolute;
-            right: 35%;
-            top: -10px;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.6;
-            animation: sparkleRotate 3s infinite;
+        /* Portfolio Grid */
+        .portfolio-landing {
+            padding: 40px 0 80px;
         }
 
+        .portfolio-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-card {
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(212, 165, 165, 0.15) 0%, rgba(212, 165, 165, 0.08) 100%);
+            border-radius: 15px;
+            padding: 60px 40px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 2px solid rgba(212, 165, 165, 0.3);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #c77b7b;
+        }
+
+        .portfolio-card h3 {
+            font-family: 'Katibeh', serif;
+            font-size: 3.5rem;
+            color: #8b6f5e;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-card p {
+            font-size: 1.1rem;
+            color: #a08070;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Items */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -611,35 +387,15 @@
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.4s;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-decoration: none;
-            display: block;
+            background-size: cover;
+            background-position: center;
         }
 
         .portfolio-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(199, 123, 123, 0.1) 0%,
-                rgba(212, 165, 165, 0.2) 100%
-            );
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .portfolio-item:hover::before {
-            opacity: 1;
         }
 
         .portfolio-item-content {
@@ -648,41 +404,13 @@
             left: 0;
             right: 0;
             padding: 30px;
-            background: linear-gradient(to top, rgba(250, 225, 225, 0.623) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(250, 225, 225, 0.9) 0%, transparent 100%);
             transform: translateY(100%);
-            transition: transform 0.4s ease;
+            transition: transform 0.4s;
         }
 
         .portfolio-item:hover .portfolio-item-content {
             transform: translateY(0);
-        }
-
-        /* Portfolio Landing Cards */
-        .portfolio-landing {
-            padding: 40px 0 80px;
-        }
-
-        .portfolio-landing > div > div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border-color: #c77b7b;
-        }
-
-        .portfolio-landing > div > div::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(199, 123, 123, 0.1) 0%, rgba(212, 165, 165, 0.15) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .portfolio-landing > div > div:hover::before {
-            opacity: 1;
         }
 
         .portfolio-item h3 {
@@ -694,24 +422,16 @@
         }
 
         .portfolio-item p {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1rem;
             color: #f5f1ed;
             margin-top: 10px;
-            opacity: 0.9;
         }
 
-        /* PROJECT DETAIL PAGES */
-        .project-detail {
-            padding: 40px 0;
-            position: relative;
-        }
-
+        /* Back Button */
         .back-button {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1.1rem;
             color: #c77b7b;
             text-decoration: none;
@@ -730,6 +450,65 @@
             font-size: 1.5rem;
         }
 
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background-color: rgba(212, 165, 165, 0.08);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #d4a5a5;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 165, 165, 0.2);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .cert-card h3 {
+            font-family: 'Katibeh', serif;
+            font-size: 1.8rem;
+            color: #8b6f5e;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-card p {
+            font-size: 1rem;
+            color: #a08070;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .cert-btn {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #c77b7b;
+            padding: 8px 20px;
+            border: 1px solid #c77b7b;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cert-btn:hover {
+            background-color: #c77b7b;
+            color: #f5f1ed;
+        }
+
+        /* Project Detail */
+        .project-detail {
+            padding: 40px 0;
+        }
+
         .project-detail h2 {
             font-family: 'Katibeh', serif;
             font-size: 4rem;
@@ -737,18 +516,6 @@
             font-weight: 400;
             margin-bottom: 30px;
             letter-spacing: 1px;
-            position: relative;
-        }
-
-        .project-detail h2::after {
-            content: '✦';
-            position: absolute;
-            margin-left: 20px;
-            top: 5px;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.6;
-            animation: sparkleRotate 3s infinite;
         }
 
         .project-content {
@@ -764,6 +531,13 @@
             background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .project-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .project-info h3 {
@@ -775,7 +549,6 @@
         }
 
         .project-info p {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1.1rem;
             color: #8b6f5e;
             line-height: 1.8;
@@ -797,7 +570,7 @@
             color: #c77b7b;
         }
 
-        /* PROJECT IMAGE GALLERY */
+        /* Gallery */
         .project-gallery {
             margin-top: 60px;
             padding-top: 40px;
@@ -827,6 +600,12 @@
             overflow: hidden;
             background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
         }
 
         .gallery-item img {
@@ -835,7 +614,7 @@
             object-fit: cover;
         }
 
-        /* Lightbox Styles */
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -845,7 +624,6 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.95);
             z-index: 9999;
-            animation: fadeIn 0.3s ease;
         }
 
         .lightbox.active {
@@ -854,21 +632,11 @@
             justify-content: center;
         }
 
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .lightbox-image {
-            max-width: 100%;
+            max-width: 90%;
             max-height: 90vh;
             object-fit: contain;
             border-radius: 8px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
         }
 
         .lightbox-close {
@@ -882,8 +650,6 @@
             border: none;
             transition: all 0.3s;
             z-index: 10000;
-            padding: 10px;
-            line-height: 1;
         }
 
         .lightbox-close:hover {
@@ -908,154 +674,160 @@
 
         .lightbox-nav:hover {
             background: rgba(245, 241, 237, 0.3);
-            color: #d4a5a5;
         }
 
-        .lightbox-nav.prev {
-            left: 30px;
+        .lightbox-nav.prev { left: 30px; }
+        .lightbox-nav.next { right: 30px; }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 60vh;
+            padding: 40px 0;
         }
 
-        .lightbox-nav.next {
-            right: 30px;
+        .about-image-placeholder {
+            width: 500px;
+            height: 600px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f1ed 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
-        .lightbox-counter {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 1.1rem;
-            color: #f5f1ed;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+        .about-image-placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        @media (max-width: 768px) {
-            .lightbox-nav {
-                font-size: 2rem;
-                padding: 15px 10px;
-            }
-
-            .lightbox-nav.prev {
-                left: 10px;
-            }
-
-            .lightbox-nav.next {
-                right: 10px;
-            }
-
-            .lightbox-close {
-                top: 10px;
-                right: 10px;
-                font-size: 2.5rem;
-            }
-
-            .lightbox-counter {
-                bottom: 20px;
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
-            .project-gallery h3 {
-                font-size: 2rem;
-            }
-        }
-
-        /* CONTACTS PAGE */
-        .contact-section {
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .contact-section h2 {
+        .about-content h2 {
             font-family: 'Katibeh', serif;
             font-size: 4.5rem;
             color: #8b6f5e;
             font-weight: 400;
-            margin-bottom: 30px;
+            line-height: 1.2;
+            margin-bottom: 40px;
             letter-spacing: 1px;
-            position: relative;
         }
 
-        .contact-section h2::before {
-            content: '❋';
-            position: absolute;
-            left: -40px;
-            top: 0;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.4;
-        }
-
-        .contact-intro {
-            font-family: 'Zen Maru Gothic', sans-serif;
+        .about-content p {
             font-size: 1.2rem;
             color: #8b6f5e;
-            margin-bottom: 60px;
-            max-width: 600px;
             line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: row;
-            gap: 0;
-            max-width: 1200px;
+        /* Testimonials */
+        .testimonials-section {
+            margin-top: 80px;
+            padding: 60px 40px;
         }
 
-        .contact-item {
-            flex: 1;
-            padding: 0 40px;
-            border-right: 1px solid rgba(139, 111, 94, 0.3);
-        }
-
-        .contact-item:first-child {
-            padding-left: 0;
-        }
-
-        .contact-item:last-child {
-            border-right: none;
-            padding-right: 0;
-        }
-
-        .contact-item h3 {
+        .testimonials-section h3 {
             font-family: 'Katibeh', serif;
-            font-size: 1.8rem;
+            font-size: 3rem;
             color: #8b6f5e;
-            margin-bottom: 15px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 400px;
+        }
+
+        .testimonial-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(212, 165, 165, 0.08);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 165, 165, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease;
+        }
+
+        .testimonial-card.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            color: #8b6f5e;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-left: 40px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
+            border: 2px solid #d4a5a5;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-family: 'Katibeh', serif;
+            font-size: 1.5rem;
+            color: #8b6f5e;
+            margin: 0;
             letter-spacing: 0.5px;
         }
 
-        .contact-item p {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 1.1rem;
-            color: #8b6f5e;
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .author-info p {
+            font-size: 0.95rem;
+            color: #a08070;
+            margin: 5px 0 0 0;
         }
 
-        /* RESUME PAGE */
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(212, 165, 165, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .dot.active {
+            background-color: #c77b7b;
+            transform: scale(1.2);
+        }
+
+        /* Resume */
         .resume-section {
             padding: 40px 0 80px;
-            position: relative;
         }
 
         .resume-header {
@@ -1063,31 +835,8 @@
             margin-bottom: 40px;
         }
 
-        .resume-header h2 {
-            font-family: 'Katibeh', serif;
-            font-size: 4.5rem;
-            color: #8b6f5e;
-            font-weight: 400;
-            margin-bottom: 0;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .resume-header h2::after {
-            content: '✦';
-            position: absolute;
-            right: -40px;
-            top: 10px;
-            color: #d4a5a5;
-            font-size: 1.5rem;
-            opacity: 0.6;
-            animation: sparkleRotate 3s infinite;
-        }
-
         .download-cv-btn {
             display: inline-block;
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1.1rem;
             color: #f5f1ed;
             background-color: #c77b7b;
@@ -1102,7 +851,6 @@
         .download-cv-btn:hover {
             background-color: #a05f5f;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(199, 123, 123, 0.4);
         }
 
         .download-cv-btn::before {
@@ -1152,7 +900,6 @@
             align-items: baseline;
             margin-bottom: 10px;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
         .resume-item h4 {
@@ -1164,14 +911,12 @@
         }
 
         .resume-item-date {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 0.95rem;
             color: #c77b7b;
             font-style: italic;
         }
 
         .resume-item-subtitle {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1.1rem;
             color: #a08070;
             margin-bottom: 10px;
@@ -1179,36 +924,10 @@
         }
 
         .resume-item p {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1rem;
             color: #8b6f5e;
             line-height: 1.7;
             margin: 0;
-        }
-
-        .view-cert-btn {
-            display: inline-block;
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 0.9rem;
-            color: #c77b7b;
-            padding: 8px 20px;
-            border: 1px solid #c77b7b;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s;
-            margin-top: 15px;
-        }
-
-        .view-cert-btn:hover {
-            background-color: #c77b7b;
-            color: #f5f1ed;
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(199, 123, 123, 0.2);
-        }
-
-        .view-cert-btn::before {
-            content: '🔗 ';
-            font-size: 0.85rem;
         }
 
         .skills-grid {
@@ -1219,7 +938,6 @@
         }
 
         .skill-item {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1rem;
             color: #8b6f5e;
             padding: 12px 20px;
@@ -1234,7 +952,65 @@
             transform: translateY(-2px);
         }
 
-        /* FOOTER */
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-section h2 {
+            font-family: 'Katibeh', serif;
+            font-size: 4.5rem;
+            color: #8b6f5e;
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .contact-intro {
+            font-size: 1.2rem;
+            color: #8b6f5e;
+            margin-bottom: 60px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0;
+            max-width: 1200px;
+        }
+
+        .contact-item {
+            flex: 1;
+            padding: 0 40px;
+            border-right: 1px solid rgba(139, 111, 94, 0.3);
+        }
+
+        .contact-item:first-child {
+            padding-left: 0;
+        }
+
+        .contact-item:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .contact-item h3 {
+            font-family: 'Katibeh', serif;
+            font-size: 1.8rem;
+            color: #8b6f5e;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            color: #8b6f5e;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
         footer {
             background-color: rgba(212, 165, 165, 0.1);
             border-top: 1px solid rgba(139, 111, 94, 0.2);
@@ -1250,20 +1026,12 @@
             gap: 30px;
         }
 
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
         .footer-copyright {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 1rem;
             color: #8b6f5e;
         }
 
         .footer-email {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 0.95rem;
             color: #8b6f5e;
             text-decoration: none;
@@ -1278,13 +1046,6 @@
             display: flex;
             gap: 20px;
             align-items: center;
-        }
-
-        .language-switcher span {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 0.9rem;
-            color: #8b6f5e;
-            margin-right: 10px;
         }
 
         .lang-btn {
@@ -1302,7 +1063,6 @@
 
         .lang-btn:hover {
             color: #d98989;
-            transform: translateY(-2px);
         }
 
         .lang-btn.active {
@@ -1323,100 +1083,25 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-section {
+            .hero,
+            .about-section,
+            .project-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             .portfolio-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .project-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .hero-text h2 {
-                font-size: 3.5rem;
-            }
-
-            .about-content h2 {
-                font-size: 3.5rem;
-            }
-
-            .resume-section h2 {
-                font-size: 3.5rem;
-            }
-
-            .resume-item-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .portfolio-section h2 {
-                font-size: 3.5rem;
-            }
-
-            .project-detail h2 {
-                font-size: 3rem;
-            }
-
-            .contact-section h2 {
-                font-size: 3.5rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .contact-item {
-                padding: 0;
-                padding-bottom: 30px;
-                border-right: none;
-                border-bottom: 1px solid rgba(139, 111, 94, 0.3);
-            }
-
-            .contact-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .language-switcher {
-                justify-content: center;
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-
-            nav ul {
-                gap: 30px;
-            }
-
-            .image-placeholder {
-                width: 350px;
-                height: 350px;
-            }
-
-            .about-image-placeholder {
-                width: 350px;
-                height: 450px;
-            }
 
         @media (max-width: 768px) {
             .container {
@@ -1426,7 +1111,6 @@
             header {
                 flex-direction: column;
                 gap: 30px;
-                text-align: center;
             }
 
             nav ul {
@@ -1435,162 +1119,33 @@
                 gap: 20px;
             }
 
-            /* FIX HOME PAGE IMAGE */
-            .hero-image {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                padding: 0;
+            .hero-text h2,
+            .about-content h2,
+            .section-title {
+                font-size: 2.8rem;
             }
 
             .image-placeholder {
-                width: 90% !important;
-                max-width: 350px !important;
-                height: 0 !important;
-                padding-bottom: 130% !important; /* This creates the aspect ratio */
-                position: relative !important;
-                background: none !important;
-            }
-
-            .image-placeholder img {
-                position: absolute !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                border-radius: 10px !important;
-            }
-
-            /* FIX HERO SECTION */
-            .hero {
-                padding: 20px 0;
-            }
-
-            .hero-text h2 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-
-            .hero-text h2::before {
-                display: none; /* Hide decorative element on mobile */
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-
-            .hero-text .philosophy {
-                font-size: 0.95rem;
-                margin-top: 30px;
-            }
-
-            .hero-text h2 {
-                font-size: 2.8rem;
-            }
-
-            .about-content h2 {
-                font-size: 2.8rem;
-            }
-
-            .resume-section h2 {
-                font-size: 2.8rem;
-            }
-
-            .resume-section h2::after {
-                right: -30px;
-                font-size: 1.2rem;
-            }
-
-            .resume-block h3 {
-                font-size: 2rem;
-            }
-
-            .resume-item h4 {
-                font-size: 1.5rem;
-            }
-
-            .download-cv-btn {
-                font-size: 1rem;
-                padding: 12px 25px;
-            }
-
-            .portfolio-section h2 {
-                font-size: 2.8rem;
-            }
-
-            .project-detail h2 {
-                font-size: 2.5rem;
-            }
-
-            .contact-section h2 {
-                font-size: 2.8rem;
-            }
-
-            .contact-section h2::before {
-                left: 0;
-                top: -30px;
-            }
-
-            .portfolio-section h2::after {
-                right: 20%;
-            }
-
-            .about-content h2::after {
-                right: -30px;
-                top: 5px;
-                font-size: 1.2rem;
-            }
-
-            .hero-text h2::before {
-                left: 0;
-                top: -30px;
-            }
-
-            .hero-text p {
-                font-size: 1.1rem;
-            }
-
-            .about-content p {
-                font-size: 1.1rem;
-            }
-
-            .image-placeholder {
-                width: 300px;
-                height: 300px;
+                width: 90%;
+                max-width: 350px;
+                height: auto;
+                aspect-ratio: 3/4;
             }
 
             .about-image-placeholder {
-                width: 300px;
-                height: 400px;
+                width: 90%;
+                max-width: 350px;
+                height: auto;
+                aspect-ratio: 5/6;
             }
 
-            .sparkle {
-                font-size: 0.8rem;
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            nav a {
-                font-size: 1.2rem;
-            }
-
-            .logo h1 {
-                font-size: 2rem;
-            }
-
-            .decorative-sheep {
-                width: 60px;
-                height: 60px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .portfolio-item h3 {
-                font-size: 2rem;
-            }
-
-            .portfolio-item-content {
-                padding: 20px;
+            .cert-grid,
+            .portfolio-cards {
+                grid-template-columns: 1fr;
             }
 
             .contact-info {
@@ -1600,369 +1155,45 @@
 
             .contact-item {
                 padding: 0;
-                padding-bottom: 20px;
                 border-right: none;
                 border-bottom: 1px solid rgba(139, 111, 94, 0.3);
+                padding-bottom: 20px;
             }
 
             .contact-item:last-child {
                 border-bottom: none;
-                padding-bottom: 0;
-            }
-        }
-            /* TESTIMONIALS SECTION */
-            .testimonials-section {
-                margin-top: 80px;
-                padding: 60px 40px;
-                position: relative;
-            }
-
-            .testimonials-section h3 {
-                font-family: 'Katibeh', serif;
-                font-size: 3rem;
-                color: #8b6f5e;
-                font-weight: 400;
-                text-align: center;
-                margin-bottom: 50px;
-                letter-spacing: 1px;
-                position: relative;
-            }
-
-            .testimonials-section h3::after {
-                content: '✦';
-                position: absolute;
-                right: 35%;
-                top: -10px;
-                color: #d4a5a5;
-                font-size: 1.2rem;
-                opacity: 0.6;
-                animation: sparkleRotate 3s infinite;
             }
 
             .testimonials-container {
-                position: relative;
-                max-width: 900px;
-                margin: 0 auto;
-                min-height: 400px;
-            }
-
-            .testimonials-wrapper {
-                position: relative;
-                width: 100%;
-                min-height: 400px;
+                padding: 0 40px;
+                min-height: 500px;
             }
 
             .testimonial-card {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 40px;
-                background-color: rgba(212, 165, 165, 0.08);
-                border-radius: 15px;
-                border: 2px solid rgba(212, 165, 165, 0.3);
-                box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.6s ease, visibility 0.6s ease;
+                padding: 30px 20px;
+                min-height: 450px;
             }
 
-            .testimonial-card.active {
-                opacity: 1;
-                visibility: visible;
-                z-index: 2;
-            }
-
-            .testimonial-card::before {
-                content: '"';
-                position: absolute;
-                top: 20px;
-                left: 30px;
-                font-size: 5rem;
-                color: #d4a5a5;
-                opacity: 0.3;
-                font-family: Georgia, serif;
-                line-height: 1;
-            }
-
-            .testimonial-quote {
-                font-family: 'Zen Maru Gothic', sans-serif;
-                font-size: 1.2rem;
-                color: #8b6f5e;
-                line-height: 1.8;
-                font-style: italic;
-                margin-bottom: 30px;
-                padding-left: 40px;
-                position: relative;
-                z-index: 1;
-            }
-
-            .testimonial-author {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                padding-left: 40px;
-            }
-
-            .author-image {
+            .decorative-sheep {
                 width: 60px;
                 height: 60px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #e8dfd6 0%, #d4c4b8 100%);
-                overflow: hidden;
-                border: 2px solid #d4a5a5;
-                flex-shrink: 0;
+                bottom: 20px;
+                right: 20px;
             }
 
-            .author-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+            .sparkle {
+                font-size: 0.8rem;
             }
+        }
 
-            .author-info h4 {
-                font-family: 'Katibeh', serif;
-                font-size: 1.5rem;
-                color: #8b6f5e;
-                margin: 0;
-                letter-spacing: 0.5px;
-            }
-
-            .author-info p {
-                font-family: 'Zen Maru Gothic', sans-serif;
-                font-size: 0.95rem;
-                color: #a08070;
-                margin: 5px 0 0 0;
-            }
-
-            /* Navigation Dots */
-            .testimonial-dots {
-                display: flex;
-                justify-content: center;
-                gap: 12px;
-                margin-top: 40px;
-                position: relative;
-                z-index: 10;
-            }
-
-            .dot {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-                background-color: rgba(212, 165, 165, 0.3);
-                cursor: pointer;
-                transition: all 0.3s;
-                border: none;
-                padding: 0;
-            }
-
-            .dot.active {
-                background-color: #c77b7b;
-                transform: scale(1.2);
-            }
-
-            .dot:hover {
-                background-color: #d4a5a5;
-            }
-
-            /* Navigation Arrows */
-            .testimonial-nav {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: none;
-                border: none;
-                cursor: pointer;
-                transition: all 0.3s;
-                z-index: 10;
-                padding: 10px;
-            }
-
-            .testimonial-nav:hover::before {
-                color: #a05f5f;
-                transform: scale(1.2);
-            }
-
-            .testimonial-nav.prev {
-                left: -50px;
-            }
-
-            .testimonial-nav.next {
-                right: -50px;
-            }
-
-            .testimonial-nav.prev::before {
-                content: '‹';
-                font-size: 3rem;
-                color: #c77b7b;
-                transition: all 0.3s;
-                display: block;
-            }
-
-            .testimonial-nav.next::before {
-                content: '›';
-                font-size: 3rem;
-                color: #c77b7b;
-                transition: all 0.3s;
-                display: block;
-            }
-            /* Testimonials Mobile Responsive */
-            @media (max-width: 768px) {
-                .testimonials-section {
-                    padding: 40px 20px;
-                    margin-top: 60px;
-                }
-                
-                .testimonials-section h3 {
-                    font-size: 2.5rem;
-                    margin-bottom: 30px;
-                }
-                
-                .testimonials-container {
-                    max-width: 100%;
-                    padding: 0 40px;
-                    min-height: 500px;  /* Give it height so cards don't overlap content */
-                }
-                
-                .testimonials-wrapper {
-                    min-height: 500px;  /* Match container height */
-                }
-                
-                .testimonial-card {
-                    /* KEEP position: absolute - DON'T override it */
-                    padding: 30px 20px;
-                    min-height: 450px;  /* Minimum height for cards */
-                }
-                
-                .testimonial-card::before {
-                    font-size: 3rem;
-                    left: 10px;
-                    top: 10px;
-                }
-                
-                .testimonial-quote {
-                    font-size: 1rem;
-                    padding-left: 20px;
-                    padding-right: 10px;
-                    line-height: 1.7;
-                    margin-bottom: 25px;
-                }
-                
-                .testimonial-author {
-                    padding-left: 20px;
-                    padding-right: 10px;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 15px;
-                }
-                
-                .author-image {
-                    width: 50px;
-                    height: 50px;
-                }
-                
-                .author-info {
-                    width: 100%;
-                }
-                
-                .author-info h4 {
-                    font-size: 1.3rem;
-                }
-                
-                .author-info p {
-                    font-size: 0.9rem;
-                    word-break: break-word;
-                }
-                
-                .testimonial-nav {
-                    position: absolute;
-                    top: 40%;
-                }
-                
-                .testimonial-nav.prev {
-                    left: 5px;
-                }
-                
-                .testimonial-nav.next {
-                    right: 5px;
-                }
-                
-                .testimonial-nav.prev::before,
-                .testimonial-nav.next::before {
-                    font-size: 2rem;
-                }
-                
-                .testimonial-dots {
-                    margin-top: 30px;
-                }
-                
-                .dot {
-                    width: 10px;
-                    height: 10px;
-                }
-            }
-
-            /* Extra small mobile devices */
-            @media (max-width: 480px) {
-                .testimonials-section {
-                    padding: 30px 10px;
-                }
-                
-                .testimonials-section h3 {
-                    font-size: 2rem;
-                }
-                
-                .testimonial-card {
-                    padding: 25px 15px;
-                }
-                
-                .testimonial-quote {
-                    font-size: 0.95rem;
-                    padding-left: 15px;
-                }
-                
-                .testimonial-author {
-                    padding-left: 15px;
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-                
-                .author-info {
-                    min-width: auto;
-                }
-                
-                .author-info h4 {
-                    font-size: 1.2rem;
-                }
-                
-                .author-info p {
-                    font-size: 0.85rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .portfolio-landing > div {
-                    grid-template-columns: 1fr !important;
-                    gap: 20px !important;
-                }
-                
-                .certifications-section > div {
-                    grid-template-columns: 1fr !important;
-                    gap: 20px !important;
-                }
-            }
-
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Floating sparkles background -->
+    <!-- Sparkles -->
     <div class="sparkles">
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✦</div>
         <div class="sparkle">✦</div>
         <div class="sparkle">✦</div>
         <div class="sparkle">✦</div>
@@ -1973,14 +1204,14 @@
 
     <!-- Decorative Sheep -->
     <div class="decorative-sheep">
-        <img src="Sheepy sheep.png" alt="Decorative sheep">
+        <img src="Sheepy sheep.png" alt="Decorative sheep" loading="lazy">
     </div>
 
     <div class="container">
         <header>
-        <div class="logo" onclick="showPage('home')">
-            <img src="logo.png" alt="Noris Martinez" style="height: 63px; cursor: pointer;">
-        </div>
+            <div class="logo" onclick="showPage('home')">
+                <img src="logo.png" alt="Noris Martinez" loading="eager">
+            </div>
             <nav>
                 <ul>
                     <li><a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a></li>
@@ -2010,32 +1241,24 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-placeholder">
-                    <img src="Profphoto.jpg" alt="Noris Martinez" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-                </div>
+                        <img src="Profphoto.jpg" alt="Noris Martinez" loading="eager">
+                    </div>
                 </div>
             </section>
         </div>
 
-        <!-- PORTFOLIO PAGE -->
-        <!-- PORTFOLIO LANDING PAGE -->
+        <!-- PORTFOLIO LANDING -->
         <div id="portfolio" class="page">
             <section class="portfolio-landing">
-                <h2 style="font-family: 'Katibeh', serif; font-size: 4.5rem; color: #8b6f5e; text-align: center; margin-bottom: 80px; position: relative; letter-spacing: 1px; font-weight: 400;">
-                    Portfolio
-                    <span style="position: absolute; right: 35%; top: -10px; color: #d4a5a5; font-size: 1.5rem; opacity: 0.6; animation: sparkleRotate 3s infinite;">✦</span>
-                </h2>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto;">
-                    <!-- Projects Card -->
-                    <div onclick="showPage('projects')" style="cursor: pointer; background: linear-gradient(135deg, rgba(212, 165, 165, 0.15) 0%, rgba(212, 165, 165, 0.08) 100%); border-radius: 15px; padding: 60px 40px; text-align: center; transition: all 0.4s ease; border: 2px solid rgba(212, 165, 165, 0.3); position: relative; overflow: hidden;">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 3.5rem; color: #8b6f5e; margin-bottom: 20px; letter-spacing: 1px;">Projects</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.1rem; color: #a08070; line-height: 1.6;">Want to see cool projects? get in here!</p>
+                <h2 class="section-title">Portfolio</h2>
+                <div class="portfolio-cards">
+                    <div class="portfolio-card" onclick="showPage('projects')">
+                        <h3>Projects</h3>
+                        <p>Want to see cool projects? get in here!</p>
                     </div>
-                    
-                    <!-- Certifications Card -->
-                    <div onclick="showPage('certifications')" style="cursor: pointer; background: linear-gradient(135deg, rgba(212, 165, 165, 0.15) 0%, rgba(212, 165, 165, 0.08) 100%); border-radius: 15px; padding: 60px 40px; text-align: center; transition: all 0.4s ease; border: 2px solid rgba(212, 165, 165, 0.3); position: relative; overflow: hidden;">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 3.5rem; color: #8b6f5e; margin-bottom: 20px; letter-spacing: 1px;">Certifications</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.1rem; color: #a08070; line-height: 1.6;">I have a lot of them, you can find the ones from other categories here</p>
+                    <div class="portfolio-card" onclick="showPage('certifications')">
+                        <h3>Certifications</h3>
+                        <p>I have a lot of them, you can find the ones from other categories here</p>
                     </div>
                 </div>
             </section>
@@ -2044,28 +1267,28 @@
         <!-- PROJECTS PAGE -->
         <div id="projects" class="page">
             <section class="portfolio-section">
-                <a class="back-button" onclick="showPage('portfolio')" style="display: inline-flex; margin-bottom: 30px;">Back to Portfolio</a>
-                <h2>Projects</h2>
+                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
+                <h2 class="section-title">Projects</h2>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item" onclick="showPage('project1')" style="background-image: url('project1.jpg'); background-size: cover; background-position: center;">
+                    <div class="portfolio-item" onclick="showPage('project1')" style="background-image: url('project1.jpg');">
                         <div class="portfolio-item-content">
                             <h3>Title 1</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project2')" style="background-image: url('project2.jpg'); background-size: cover; background-position: center;">
+                    <div class="portfolio-item" onclick="showPage('project2')" style="background-image: url('project2.jpg');">
                         <div class="portfolio-item-content">
                             <h3>Title 2</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project3')" style="background-image: url('project3.jpg'); background-size: cover; background-position: center;">
+                    <div class="portfolio-item" onclick="showPage('project3')" style="background-image: url('project3.jpg');">
                         <div class="portfolio-item-content">
                             <h3>Title 3</h3>
                             <p>Brief description of the project and your role</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('project4')" style="background-image: url('project4.jpg'); background-size: cover; background-position: center;">
+                    <div class="portfolio-item" onclick="showPage('project4')" style="background-image: url('project4.jpg');">
                         <div class="portfolio-item-content">
                             <h3>Title 4</h3>
                             <p>Brief description of the project and your role</p>
@@ -2079,67 +1302,54 @@
         <div id="certifications" class="page">
             <section class="certifications-section">
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
-                <h2 style="font-family: 'Katibeh', serif; font-size: 4.5rem; color: #8b6f5e; text-align: center; margin-bottom: 60px; position: relative; letter-spacing: 1px; font-weight: 400;">
-                    Certifications
-                    <span style="position: absolute; right: 32%; top: -10px; color: #d4a5a5; font-size: 1.5rem; opacity: 0.6; animation: sparkleRotate 3s infinite;">✦</span>
-                </h2>
-                
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto;">
-                    <!-- Certification Card 1 -->
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 1</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                <h2 class="section-title">Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <h3>Topic 1</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
-                    
-                    <!-- Repeat for more certificates -->
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 2</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                    <div class="cert-card">
+                        <h3>Topic 2</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
-                    
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 3</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                    <div class="cert-card">
+                        <h3>Topic 3</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
-                    
-                    <!-- Add 3 more to make 6 total -->
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 4</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                    <div class="cert-card">
+                        <h3>Topic 4</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
-                    
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 5</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                    <div class="cert-card">
+                        <h3>Topic 5</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
-                    
-                    <div style="background-color: rgba(212, 165, 165, 0.08); border-radius: 12px; padding: 30px; border-left: 4px solid #d4a5a5; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(212, 165, 165, 0.2);">
-                        <h3 style="font-family: 'Katibeh', serif; font-size: 1.8rem; color: #8b6f5e; margin-bottom: 15px; letter-spacing: 0.5px;">Topic 6</h3>
-                        <p style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; color: #a08070; line-height: 1.6; margin-bottom: 20px;">Little Description of what this is about</p>
-                        <a href="#" style="display: inline-block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.9rem; color: #c77b7b; padding: 8px 20px; border: 1px solid #c77b7b; border-radius: 5px; text-decoration: none; transition: all 0.3s;">View Certificate</a>
+                    <div class="cert-card">
+                        <h3>Topic 6</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- PROJECT 1 DETAIL PAGE -->
+        <!-- PROJECT DETAIL PAGES -->
         <div id="project1" class="page">
             <section class="project-detail">
-                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
+                <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
                 <h2>Title 1</h2>
                 <div class="project-content">
                     <div class="project-image-large">
-                        <img src="project1-detail.jpg" alt="Project 1 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                        <img src="project1-detail.jpg" alt="Project 1 Details" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
                         <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
-                        
                         <div class="project-details-list">
                             <p><strong>Role:</strong> Your role in the project</p>
                             <p><strong>Duration:</strong> Project timeline</p>
@@ -2148,163 +1358,27 @@
                         </div>
                     </div>
                 </div>
-            </section>
-                    <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <h3>Gallery</h3>
-                    <div class="gallery-grid"> 
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-1.jpg" alt="Project 1 Image 1">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-2.jpg" alt="Project 1 Image 2">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-3.jpg" alt="Project 1 Image 3">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-4.jpg" alt="Project 1 Image 4">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-5.jpg" alt="Project 1 Image 5">
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-        <!-- PROJECT 2 DETAIL PAGE -->
-        <div id="project2" class="page">
-            <section class="project-detail">
-                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
-                <h2>Title 2</h2>
-                <div class="project-content">
-                    <div class="project-image-large">
-                        <img src="project2-detail.jpg" alt="Project 2 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Overview</h3>
-                        <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
-                        
-                        <div class="project-details-list">
-                            <p><strong>Role:</strong> Your role in the project</p>
-                            <p><strong>Duration:</strong> Project timeline</p>
-                            <p><strong>Technologies:</strong> Tools and technologies used</p>
-                            <p><strong>Outcome:</strong> Results and impact</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                    <!-- Project Gallery -->
                 <div class="project-gallery">
                     <h3>Gallery</h3>
                     <div class="gallery-grid">
                         <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-1.jpg" alt="Project 1 Image 1">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-2.jpg" alt="Project 1 Image 2">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-3.jpg" alt="Project 1 Image 3">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-4.jpg" alt="Project 1 Image 4">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-5.jpg" alt="Project 1 Image 5">
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-        <!-- PROJECT 3 DETAIL PAGE -->
-        <div id="project3" class="page">
-            <section class="project-detail">
-                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
-                <h2>Title 3</h2>
-                <div class="project-content">
-                    <div class="project-image-large">
-                        <img src="project3-detail.jpg" alt="Project 3 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Overview</h3>
-                        <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
-                        
-                        <div class="project-details-list">
-                            <p><strong>Role:</strong> Your role in the project</p>
-                            <p><strong>Duration:</strong> Project timeline</p>
-                            <p><strong>Technologies:</strong> Tools and technologies used</p>
-                            <p><strong>Outcome:</strong> Results and impact</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <h3>Gallery</h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-1.jpg" alt="Project 1 Image 1">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-2.jpg" alt="Project 1 Image 2">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-3.jpg" alt="Project 1 Image 3">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-4.jpg" alt="Project 1 Image 4">
-                        </div>
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-5.jpg" alt="Project 1 Image 5">
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-        <!-- PROJECT 4 DETAIL PAGE -->
-        <div id="project4" class="page">
-            <section class="project-detail">
-                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
-                <h2>Title 4</h2>
-                <div class="project-content">
-                    <div class="project-image-large">
-                        <img src="project3-detail.jpg" alt="Project 4 Details" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Overview</h3>
-                        <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
-                        
-                        <div class="project-details-list">
-                            <p><strong>Role:</strong> Your role in the project</p>
-                            <p><strong>Duration:</strong> Project timeline</p>
-                            <p><strong>Technologies:</strong> Tools and technologies used</p>
-                            <p><strong>Outcome:</strong> Results and impact</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <h3>Gallery</h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item" onclick="openLightbox(0)">
-                            <img src="project1-gallery-1.jpg" alt="Project 1 Image 1">
+                            <img src="project1-gallery-1.jpg" alt="Gallery 1" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openLightbox(1)">
-                            <img src="project1-gallery-2.jpg" alt="Project 1 Image 2">
+                            <img src="project1-gallery-2.jpg" alt="Gallery 2" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openLightbox(2)">
-                            <img src="project1-gallery-3.jpg" alt="Project 1 Image 3">
+                            <img src="project1-gallery-3.jpg" alt="Gallery 3" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openLightbox(3)">
-                            <img src="project1-gallery-4.jpg" alt="Project 1 Image 4">
+                            <img src="project1-gallery-4.jpg" alt="Gallery 4" loading="lazy">
                         </div>
                         <div class="gallery-item" onclick="openLightbox(4)">
-                            <img src="project1-gallery-5.jpg" alt="Project 1 Image 5">
+                            <img src="project1-gallery-5.jpg" alt="Gallery 5" loading="lazy">
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
 
         <!-- ABOUT ME PAGE -->
@@ -2312,12 +1386,10 @@
             <section class="about-section">
                 <div class="about-image">
                     <div class="about-image-placeholder">
-                     <video autoplay muted loop playsinline
-                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-                        <source src="Aboutmevideo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                        <video autoplay muted loop playsinline>
+                            <source src="Aboutmevideo.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
                 <div class="about-content">
                     <h2>About me</h2>
@@ -2325,97 +1397,65 @@
                     <p>Studying in Peter the Great Saint Petersburg Polytechnic University, my program is International Business (in English), currently studying on third year.</p>
                 </div>
             </section>
-        <!-- Testimonials Section -->
-                <div class="testimonials-section">
-                    <h3>Recommendations</h3>
-                    <div class="testimonials-container">
-                        <div class="testimonial-nav prev" onclick="changeTestimonial(-1)"></div>
-                        <div class="testimonial-nav next" onclick="changeTestimonial(1)"></div>
-                        
-                        <div class="testimonials-wrapper" id="testimonialsWrapper">
-                            <!-- Testimonial 1 -->
-                            <div class="testimonial-card">
-                                <p class="testimonial-quote">
-                                    Noris is an exceptional leader with a natural ability to inspire and guide teams. Her dedication to learning and growth is truly admirable, and she brings a unique international perspective to every project.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-image">
-                                        <!-- Add person's photo here: <img src="person1.jpg" alt="Person Name"> -->
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Professor Name</h4>
-                                        <p>Title, University Name</p>
-                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
-                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
-                                            *Available upon request for reference
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Testimonial 2 -->
-                            <div class="testimonial-card">
-                                <p class="testimonial-quote">
-                                    Working with Noris has been a pleasure. She demonstrates strong business acumen and excellent communication skills. Her trilingual abilities and cross-cultural understanding make her a valuable asset.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-image">
-                                        <!-- Add person's photo here: <img src="person2.jpg" alt="Person Name"> -->
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Professor Name</h4>
-                                        <p>Title, University Name</p>
-                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
-                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
-                                            *Available upon request for reference
-                                        </p>
-                                    </div>
-                                </div>
+            <!-- Testimonials -->
+            <div class="testimonials-section">
+                <h3>Recommendations</h3>
+                <div class="testimonials-container">
+                    <div class="testimonial-card active">
+                        <p class="testimonial-quote">
+                            Noris is an exceptional leader with a natural ability to inspire and guide teams. Her dedication to learning and growth is truly admirable.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-image"></div>
+                            <div class="author-info">
+                                <h4>Professor Name</h4>
+                                <p>Title, University Name</p>
                             </div>
-
-                            <!-- Testimonial 3 -->
-                            <div class="testimonial-card">
-                                <p class="testimonial-quote">
-                                    Noris's commitment to excellence and her positive attitude are contagious. She approaches every challenge with determination and grace, making her an outstanding team member and leader.
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-image">
-                                        <!-- Add person's photo here: <img src="person3.jpg" alt="Person Name"> -->
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Professor Name</h4>
-                                        <p>Title, University Name</p>
-                                        <p style="font-size: 0.85rem; margin-top: 5px;">📧 professor@university.edu</p>
-                                        <p style="font-size: 0.9rem; color: #a08070; font-style: italic; margin-top: 15px;">
-                                            *Available upon request for reference
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Dots -->
-                        <div class="testimonial-dots">
-                            <button class="dot active" onclick="goToTestimonial(0)"></button>
-                            <button class="dot" onclick="goToTestimonial(1)"></button>
-                            <button class="dot" onclick="goToTestimonial(2)"></button>
                         </div>
                     </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            Working with Noris has been a pleasure. She demonstrates strong business acumen and excellent communication skills.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-image"></div>
+                            <div class="author-info">
+                                <h4>Professor Name 2</h4>
+                                <p>Title, University Name</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            Noris's commitment to excellence and her positive attitude are contagious. She approaches every challenge with determination.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-image"></div>
+                            <div class="author-info">
+                                <h4>Professor Name 3</h4>
+                                <p>Title, University Name</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots">
+                        <button class="dot active" onclick="goToTestimonial(0)"></button>
+                        <button class="dot" onclick="goToTestimonial(1)"></button>
+                        <button class="dot" onclick="goToTestimonial(2)"></button>
+                    </div>
                 </div>
+            </div>
         </div>
+
         <!-- RESUME PAGE -->
         <div id="resume" class="page">
             <section class="resume-section">
                 <div class="resume-header">
-                    <h2>Resume</h2>
-                </div>
-                
-                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="section-title">Resume</h2>
                     <a href="CV_Noris_Martinez.pdf" class="download-cv-btn" target="_blank">View CV (PDF)</a>
                 </div>
 
                 <div class="resume-content">
-                    <!-- Education Section -->
                     <div class="resume-block">
                         <h3>Education</h3>
                         <div class="resume-item">
@@ -2424,42 +1464,18 @@
                                 <span class="resume-item-date">2022 - Present</span>
                             </div>
                             <p class="resume-item-subtitle">Peter the Great Saint Petersburg Polytechnic University</p>
-                            <p>Currently in third year, focusing on international economy, business management, human resources & motivation, and effective use of capital resources withing the companies.</p>
+                            <p>Currently in third year, focusing on international economy, business management, and effective use of capital resources.</p>
                         </div>
-                        
                         <div class="resume-item">
                             <div class="resume-item-header">
-                                <h4>High School Diploma (Specialization in Informatics)</h4>
+                                <h4>High School Diploma</h4>
                                 <span class="resume-item-date">2018 - 2021</span>
                             </div>
                             <p class="resume-item-subtitle">Instituto Despertar Yoreño, Honduras</p>
-                            <p>Graduated with honors, with a strong focus on programing, office software (MS Office, LibreOffice), business and language studies.</p>
+                            <p>Graduated with honors, with a strong focus on programming and business studies.</p>
                         </div>
                     </div>
 
-                    <!-- Work Experience Section -->
-                    <div class="resume-block">
-                        <h3>Work Experience</h3>
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Position Title</h4>
-                                <span class="resume-item-date">Month Year - Present</span>
-                            </div>
-                            <p class="resume-item-subtitle">Company Name, Location</p>
-                            <p>Brief description of your role and key responsibilities. Mention achievements and impact you made.</p>
-                        </div>
-                        
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Previous Position</h4>
-                                <span class="resume-item-date">Month Year - Month Year</span>
-                            </div>
-                            <p class="resume-item-subtitle">Company Name, Location</p>
-                            <p>Description of responsibilities and accomplishments in this role.</p>
-                        </div>
-                    </div>
-
-                    <!-- Skills Section -->
                     <div class="resume-block">
                         <h3>Skills</h3>
                         <div class="skills-grid">
@@ -2473,53 +1489,6 @@
                             <div class="skill-item">Project Management</div>
                         </div>
                     </div>
-                    
-                    <!-- Certifications Section -->
-                    <div class="resume-block">
-                        <h3>My Certifications</h3>
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Certification Name</h4>
-                                <span class="resume-item-date">Month Year</span>
-                            </div>
-                            <p class="resume-item-subtitle">Issuing Organization</p>
-                            <p>Brief description of what this certification covers and its relevance to your field.</p>
-                            <a href="#" class="view-cert-btn">View Certificate</a>
-                        </div>
-
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Another Certification</h4>
-                                <span class="resume-item-date">Month Year</span>
-                            </div>
-                            <p class="resume-item-subtitle">Issuing Organization</p>
-                            <p>Description of this certification and what skills or knowledge it demonstrates.</p>
-                            <a href="#" class="view-cert-btn">View Certificate</a>
-                        </div>
-
-                    <!-- Extracurricular Activities Section -->
-                    <div class="resume-block">
-                        <h3>Extracurricular Activities</h3>
-                        
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Activity/Organization Name</h4>
-                                <span class="resume-item-date">2022 - Present</span>
-                            </div>
-                            <p class="resume-item-subtitle">Your Role/Position</p>
-                            <p>Brief description of your involvement, responsibilities, and what you achieved or learned from this activity.</p>
-                        </div>
-                        
-                        <div class="resume-item">
-                            <div class="resume-item-header">
-                                <h4>Another Activity/Volunteer Work</h4>
-                                <span class="resume-item-date">2023 - 2024</span>
-                            </div>
-                            <p class="resume-item-subtitle">Your Role</p>
-                            <p>Description of your participation and impact.</p>
-                        </div>
-                    </div>
-                    </div>
                 </div>
             </section>
         </div>
@@ -2529,20 +1498,17 @@
             <section class="contact-section">
                 <h2>Let's connect</h2>
                 <p class="contact-intro">Feel free to reach out through any of these channels!</p>
-                
                 <div class="contact-info">
                     <div class="contact-item">
                         <h3>Phone number:</h3>
                         <p>+7 (999) 999-99-99</p>
                         <p>+504 9999-9999</p>
                     </div>
-
                     <div class="contact-item">
                         <h3>E-mail:</h3>
                         <p>noris.mercedes7@mail.ru</p>
                         <p>noris.mercedes7@gmail.com</p>
                     </div>
-
                     <div class="contact-item">
                         <h3>Telegram:</h3>
                         <p>@nicto_neo</p>
@@ -2552,17 +1518,12 @@
         </div>
     </div>
 
-    <!-- Lightbox (outside container, fixed position) -->
+    <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
         <button class="lightbox-nav prev" onclick="changeLightboxImage(-1)">&#8249;</button>
-        <div class="lightbox-content">
-            <img id="lightbox-image" class="lightbox-image" src="" alt="">
-        </div>
+        <img id="lightbox-image" class="lightbox-image" src="" alt="">
         <button class="lightbox-nav next" onclick="changeLightboxImage(1)">&#8250;</button>
-        <div class="lightbox-counter">
-            <span id="lightbox-counter"></span>
-        </div>
     </div>
 
     <!-- FOOTER -->
@@ -2573,7 +1534,6 @@
                     <p class="footer-copyright">© Noris Martínez, 2025</p>
                     <a href="mailto:noris.mercedes7@gmail.com" class="footer-email">noris.mercedes7@gmail.com</a>
                 </div>
-                
                 <div class="language-switcher">
                     <span>Language:</span>
                     <button class="lang-btn active" data-lang="en">EN</button>
@@ -2585,157 +1545,96 @@
     </footer>
 
     <script>
+        // Page Navigation - Optimizado
         function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId)?.classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.page === pageId);
             });
-
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            }
-
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('active');
-                }
-            });
-
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Lightbox functionality
+        // Lightbox - Optimizado
         let currentLightboxIndex = 0;
         let galleryImages = [];
 
         function openLightbox(index) {
-            const lightbox = document.getElementById('lightbox');
             const activePage = document.querySelector('.page.active');
-            const galleryItems = activePage.querySelectorAll('.gallery-item img');
-            
-            // Store all gallery images
-            galleryImages = Array.from(galleryItems).map(img => ({
+            galleryImages = Array.from(activePage.querySelectorAll('.gallery-item img')).map(img => ({
                 src: img.src,
                 alt: img.alt
             }));
             
             currentLightboxIndex = index;
             updateLightboxImage();
-            lightbox.classList.add('active');
-            
-            // Prevent body scroll when lightbox is open
+            document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            
-            // Restore body scroll
+            document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
         function changeLightboxImage(direction) {
-            currentLightboxIndex += direction;
-            
-            // Loop around
-            if (currentLightboxIndex < 0) {
-                currentLightboxIndex = galleryImages.length - 1;
-            } else if (currentLightboxIndex >= galleryImages.length) {
-                currentLightboxIndex = 0;
-            }
-            
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
             updateLightboxImage();
         }
 
         function updateLightboxImage() {
-            const lightboxImage = document.getElementById('lightbox-image');
-            const counter = document.getElementById('lightbox-counter');
-            
             if (galleryImages.length > 0) {
-                lightboxImage.src = galleryImages[currentLightboxIndex].src;
-                lightboxImage.alt = galleryImages[currentLightboxIndex].alt;
-                counter.textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+                const img = document.getElementById('lightbox-image');
+                img.src = galleryImages[currentLightboxIndex].src;
+                img.alt = galleryImages[currentLightboxIndex].alt;
             }
         }
 
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft') {
-                changeLightboxImage(-1);
-            } else if (e.key === 'ArrowRight') {
-                changeLightboxImage(1);
-            }
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+            else if (e.key === 'ArrowRight') changeLightboxImage(1);
         });
+
+        // Testimonials - Optimizado
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+
+        function changeTestimonial(direction) {
+            const cards = document.querySelectorAll('.testimonial-card');
+            cards[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + direction + totalTestimonials) % totalTestimonials;
+            cards[currentTestimonial].classList.add('active');
+            updateDots();
+        }
+
+        function goToTestimonial(index) {
+            const cards = document.querySelectorAll('.testimonial-card');
+            cards[currentTestimonial].classList.remove('active');
+            currentTestimonial = index;
+            cards[currentTestimonial].classList.add('active');
+            updateDots();
+        }
+
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonial);
+            });
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => changeTestimonial(1), 5000);
 
         // Language Switcher
-        const langButtons = document.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                langButtons.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
-                const lang = this.getAttribute('data-lang');
-                // TODO: Implement language switching functionality
-                console.log('Language switched to:', lang);
             });
         });
-        // Testimonials Carousel with Fade
-let currentTestimonial = 0;
-const totalTestimonials = 3;
-
-function changeTestimonial(direction) {
-    const cards = document.querySelectorAll('.testimonial-card');
-    cards[currentTestimonial].classList.remove('active');
-    
-    currentTestimonial += direction;
-    
-    if (currentTestimonial < 0) {
-        currentTestimonial = totalTestimonials - 1;
-    } else if (currentTestimonial >= totalTestimonials) {
-        currentTestimonial = 0;
-    }
-    
-    cards[currentTestimonial].classList.add('active');
-    updateDots();
-}
-
-function goToTestimonial(index) {
-    const cards = document.querySelectorAll('.testimonial-card');
-    cards[currentTestimonial].classList.remove('active');
-    currentTestimonial = index;
-    cards[currentTestimonial].classList.add('active');
-    updateDots();
-}
-
-function updateDots() {
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
-        if (index === currentTestimonial) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Initialize first testimonial
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.testimonial-card');
-    if (cards.length > 0) {
-        cards[0].classList.add('active');
-    }
-});
-
-// Auto-rotate testimonials every 5 seconds
-setInterval(() => {
-    changeTestimonial(1);
-}, 5000);
     </script>
 </body>
 </html>
