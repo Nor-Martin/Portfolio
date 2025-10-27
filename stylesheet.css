@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Amorthe';
-    src: url('Amorthe-Bold.woff2') format('woff2'),
-        url('Amorthe-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-

@@ -19,11 +19,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Amorthe';
-            src: url('Fonts/Amorthe-Bold.ttf') format('truetype');
-}
+            src: url('Amorthe-Bold.woff2') format('woff2'),
+                url('Amorthe-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
     </style>
     <style>
 
@@ -36,6 +42,11 @@
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             background-color: #f5f1ed;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #8b6f5e;
             line-height: 1.6;
             position: relative;
@@ -89,7 +100,7 @@
             right: 40px;
             width: 80px;
             height: 80px;
-            opacity: 0.6;
+            opacity: 0.75;
             pointer-events: auto;
             z-index: 0;
             animation: floatSheep 4s ease-in-out infinite;
@@ -132,20 +143,20 @@
 
         .sparkle {
             position: absolute;
-            color: #d4a5a5;
+            color: #c28686;
             opacity: 0;
             animation: twinkle 4s infinite;
             font-size: 1rem;
         }
 
-        .sparkle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(1) { top: 13%; left: 5%; animation-delay: 0s; font-size: 1.2rem}
         .sparkle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; font-size: 0.7rem; }
         .sparkle:nth-child(3) { top: 35%; left: 10%; animation-delay: 2s; font-size: 1.2rem; }
         .sparkle:nth-child(4) { top: 50%; left: 85%; animation-delay: 0.5s; }
         .sparkle:nth-child(5) { top: 65%; left: 20%; animation-delay: 1.5s; font-size: 0.8rem; }
         .sparkle:nth-child(6) { top: 75%; left: 70%; animation-delay: 2.5s; }
         .sparkle:nth-child(7) { top: 85%; left: 40%; animation-delay: 1.2s; font-size: 1.1rem; }
-        .sparkle:nth-child(8) { top: 15%; left: 50%; animation-delay: 3s; font-size: 0.9rem; }
+        .sparkle:nth-child(8) { top: 30%; left: 50%; animation-delay: 3s; font-size: 0.9rem; }
 
         @keyframes twinkle {
             0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
@@ -185,15 +196,15 @@
             cursor: pointer;
         }
 
-        .logo h1 {
-            font-family: 'Amorthe', serif;
-            font-size: 2rem;
-            color: #c77b7b;
-            font-weight: 600;
-            margin-bottom: 5px;
-            position: relative;
-            display: inline-block;
-            letter-spacing: 0px;
+        .logo img {
+            height: 63px;
+            width: auto;
+            display: block;
+            transition: transform 0.15s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.02);
         }
 
         .logo h1::after {
@@ -347,7 +358,7 @@
             transform: translate(-50%, -50%);
             color: #c77b7b;
             font-size: 1.5rem;
-            background-color: #f5f1ed;
+            background-color: #f5f1ed00;
             padding: 0 15px;
             animation: pulse 2s infinite;
         }
@@ -1967,10 +1978,9 @@
 
     <div class="container">
         <header>
-            <div class="logo" onclick="showPage('home')">
-                <h1>Noris Martinez</h1>
-                <p>Portfolio</p>
-            </div>
+        <div class="logo" onclick="showPage('home')">
+            <img src="logo.png" alt="Noris Martinez" style="height: 63px; cursor: pointer;">
+        </div>
             <nav>
                 <ul>
                     <li><a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a></li>
