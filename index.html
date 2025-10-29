@@ -401,7 +401,7 @@
             left: 0;
             right: 0;
             padding: 30px;
-            background: linear-gradient(to top, rgba(139, 111, 94, 0.95) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(196, 159, 137, 0.625) 0%, transparent 100%);
             transform: translateY(100%);
             transition: transform 0.4s;
         }
@@ -1129,17 +1129,17 @@
         @media (max-width: 768px) {
             body {
                 background-image: url('fondocel.png');
-                background-attachment: scroll;
+                background-attachment: fixed;
             }
 
             .container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
             header {
                 flex-direction: column;
-                gap: 20px;
-                padding: 30px 0 15px;
+                gap: 15px;
+                padding: 20px 0 10px;
             }
 
             .logo-desktop {
@@ -1151,17 +1151,23 @@
             }
 
             .logo img {
-                height: 50px;
+                height: 45px;
             }
 
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 10px 20px;
+                width: 100%;
+            }
+
+            nav li {
+                flex: 0 0 auto;
             }
 
             nav a {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 5px 8px;
             }
 
             .dropdown-menu {
