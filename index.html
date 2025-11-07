@@ -206,7 +206,7 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-10px);
-            background: rgba(245, 241, 237, 0.95);
+            background: rgba(246, 240, 234, 0.608);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 165, 165, 0.4);
             border-radius: 12px;
@@ -355,6 +355,10 @@
             border-color: #c77b7b;
         }
 
+        .portfolio-cards.three-cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         .portfolio-card h3 {
             font-family: 'Katibeh', serif;
             font-size: 3.5rem;
@@ -497,6 +501,22 @@
         .cert-btn:hover {
             background-color: #c77b7b;
             color: #f5f1ed;
+        }
+
+        .cert-category-title {
+            font-family: 'Katibeh', serif;
+            font-size: 2.2rem;
+            color: #8b6f5e;
+            margin: 40px 0 25px 0;
+            letter-spacing: 0.5px;
+            grid-column: 1 / -1;
+            text-align: left;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(212, 165, 165, 0.3);
+        }
+
+        .cert-category-title:first-of-type {
+            margin-top: 0;
         }
 
         .project-detail {
@@ -675,9 +695,20 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            align-items: center;
+            align-items: start;
             min-height: 60vh;
             padding: 40px 0;
+        }
+
+        .about-left-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
         }
 
         .about-image-placeholder {
@@ -710,6 +741,83 @@
             color: #8b6f5e;
             line-height: 1.8;
             margin-bottom: 20px;
+        }
+
+        .hobbies-section {
+            margin-top: -45px;
+            padding: 0;
+        }
+
+        .hobbies-section h3 {
+            font-family: 'Katibeh', serif;
+            font-size: 2rem;
+            color: #8b6f5e;
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .hobby-card {
+            background: rgba(212, 165, 165, 0.15);
+            border-radius: 10px;
+            padding: 6px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 165, 165, 0.25);
+            overflow: hidden;
+        }
+
+        .hobby-card:hover {
+            background: rgba(212, 165, 165, 0.22);
+        }
+
+        .hobby-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0;
+            position: relative;
+        }
+
+        .hobby-title {
+            font-family: 'Katibeh', serif;
+            font-size: 1.6rem;
+            color: #8b6f5e;
+            letter-spacing: 0.5px;
+        }
+
+        .hobby-arrow {
+            font-size: 1.2rem;
+            color: #c77b7b;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-card.expanded .hobby-arrow {
+            transform: rotate(90deg);
+        }
+
+        .hobby-description {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+        }
+
+        .hobby-card.expanded .hobby-description {
+            max-height: 300px;
+            margin-top: 15px;
+        }
+
+        .hobby-description p {
+            font-size: 0.95rem;
+            color: #a08070;
+            line-height: 1.7;
+            margin: 0;
         }
 
         .testimonials-section {
@@ -1108,6 +1216,10 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+            
+            .hobbies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }    
 
             .portfolio-grid {
                 grid-template-columns: 1fr;
@@ -1124,6 +1236,26 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-right-column {
+                gap: 40px;
+            }
+            
+            .about-image-placeholder {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .hobbies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
          @media (max-width: 768px) {
@@ -1232,6 +1364,10 @@
 
             .portfolio-card h3 {
                 font-size: 2.8rem;
+            }
+
+            .portfolio-cards.three-cards {
+                grid-template-columns: 1fr;
             }
 
             .portfolio-card p {
@@ -1352,6 +1488,40 @@
 
             .about-content p {
                 font-size: 1.05rem;
+            }
+            
+            .hobbies-section {
+                margin-top: 60px;
+                padding: 40px 0;
+            }
+
+            .hobbies-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 35px;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-card {
+                padding: 25px;
+            }
+
+            .about-right-column {
+                gap: 30px;
+            }
+
+            .hobby-title {
+                font-size: 1.6rem;
+            }
+
+            .hobby-arrow {
+                font-size: 1.3rem;
+            }
+
+            .hobby-description p {
+                font-size: 0.95rem;
             }
 
             .testimonials-section {
@@ -1534,6 +1704,10 @@
             .sparkles {
                 display: none;
             }
+            .portfolio-cards,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1620,6 +1794,7 @@
                         <a onclick="showPage('portfolio')" class="nav-link" data-page="portfolio">Portfolio</a>
                         <div class="dropdown-menu">
                             <a onclick="showPage('projects')">Projects</a>
+                            <a onclick="showPage('designs')">Designs</a>
                             <a onclick="showPage('certifications')">Certifications</a>
                         </div>
                     </li>
@@ -1650,12 +1825,17 @@
         <div id="portfolio" class="page">
             <section class="portfolio-landing">
                 <h2 class="section-title">Portfolio</h2>
-                <div class="portfolio-cards">
+                <div class="portfolio-cards three-cards">
                     <div class="portfolio-card" onclick="showPage('projects')">
                         <h3>Projects</h3>
                         <p>"Ideas that became reality, a record of artistry"</p>
                         <p>Projects made in various fields</p>
                     </div>
+                        <div class="portfolio-card" onclick="showPage('designs')">
+                            <h3>Designs</h3>
+                            <p>"Creativity brought to life through visual expression"</p>
+                            <p>Design work across various mediums</p>
+                        </div>
                     <div class="portfolio-card" onclick="showPage('certifications')">
                         <h3>Certifications</h3>
                         <p>"Judgment forged through thoughtful reflection"</p>
@@ -1698,40 +1878,282 @@
             </section>
         </div>
 
+        <div id="designs" class="page">
+            <section class="portfolio-section">
+                <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
+                <h2 class="section-title">Designs</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" onclick="showPage('design1')" style="background-image: url('design1.jpg');">
+                        <div class="portfolio-item-content">
+                            <h3>Design Title 1</h3>
+                            <p>Brief description of the design project</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" onclick="showPage('design2')" style="background-image: url('design2.jpg');">
+                        <div class="portfolio-item-content">
+                            <h3>Design Title 2</h3>
+                            <p>Brief description of the design project</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" onclick="showPage('design3')" style="background-image: url('design3.jpg');">
+                        <div class="portfolio-item-content">
+                            <h3>Design Title 3</h3>
+                            <p>Brief description of the design project</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" onclick="showPage('design4')" style="background-image: url('design4.jpg');">
+                        <div class="portfolio-item-content">
+                            <h3>Design Title 4</h3>
+                            <p>Brief description of the design project</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <div id="certifications" class="page">
             <section class="certifications-section">
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2 class="section-title">Certifications</h2>
                 <div class="cert-grid">
+                    <h3 class="cert-category-title">Microsoft Office Certifications</h3>
+                    
                     <div class="cert-card">
                         <h3>Microsoft Office Specialist: Excel Associate</h3>
                         <p>The Microsoft Office Specialist (MOS) Excel Associate certification validates abilities to create, edit, and manage Excel worksheets and workbooks, plus working with formulas.</p>
                         <a href="CertificateMOS_Excel_Associate_NorMartin_2025wresults.pdf" class="cert-btn">View Certificate</a>
                     </div>
                     <div class="cert-card">
-                        <h3>CAMCOP Excel Certificates</h3>
+                        <h3>CAMCOP MS Excel Certificates</h3>
                         <p>Certificates of studies for MS Excel learning in the levels: Basic Profesional, Intermediate Profesional, Advanced Profesional. It covers from the most basic MS Excel topics to advanced formulas & usage of the application.</p>
                         <a href="CAMCOP_Certificates.pdf" class="cert-btn">View Certificate</a>
                     </div>
                     <div class="cert-card">
-                        <h3>Topic 3</h3>
-                        <p>Little Description of what this is about</p>
-                        <a href="#" class="cert-btn">View Certificate</a>
+                        <h3>INFOP MS Excel Financial</h3>
+                        <p>Certification of studies of MS Excel focused in the use for financial & accounting purposes, covering specific formulas, tools & information to make effective calculations and complete reports on these areas.</p>
+                        <a href="INFOP_MS_Excelfinanciero.pdf" class="cert-btn">View Certificate</a>
+                    </div>
+                    
+                    <h3 class="cert-category-title">Additional Studies: Management Field</h3>
+                    
+                    <div class="cert-card">
+                        <h3>INFOP Human Resource Management</h3>
+                        <p>Certification of studies on Human Resource management within the company, with an accent on the laws for both sides (employer & employee), understanding the various scenarios, problem solving and creating motivation systems.</p>
+                        <a href="INFOP_RH.pdf" class="cert-btn">View Certificate</a>
                     </div>
                     <div class="cert-card">
-                        <h3>Topic 4</h3>
-                        <p>Little Description of what this is about</p>
-                        <a href="#" class="cert-btn">View Certificate</a>
-                    </div>
-                    <div class="cert-card">
-                        <h3>Topic 5</h3>
-                        <p>Little Description of what this is about</p>
-                        <a href="#" class="cert-btn">View Certificate</a>
+                        <h3>INFOP Financial Management</h3>
+                        <p>Certification of studies on Financial Management within the company. The emphasis is on analyzing company's intern processes, calculation on effectiveness, utilizing economic assessments methods such as financial ratios, cash flow, & non-financial performance measures to assure ideal business operations.</p>
+                        <a href="INFO_Admin_Finan.pdf" class="cert-btn">View Certificate</a>
                     </div>
                     <div class="cert-card">
                         <h3>Topic 6</h3>
                         <p>Little Description of what this is about</p>
                         <a href="#" class="cert-btn">View Certificate</a>
+                    </div>
+                    
+                    <h3 class="cert-category-title">Contests, Conferences & Olympics</h3>
+                    
+                    <div class="cert-card">
+                        <h3>International Olympic of Economics & Management - Section "International Economics"</h3>
+                        <p>Winner in the nomination "The Team's Spirit". Olympic organized by UNECON, Saint Petersburg, Russia. This olimpic included stages such as individual solving (tasks related to international economics), team case solving (creation of startups to solve the case, this year being focused on Colombia) & presentation before the jury.</p>
+                        <a href="UNECON_Olimpiad_2025.pdf" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Project Contest "Basics of Project Activity"</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="ОПД_makeyourselfathome.pdf" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Topic 9</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
+                    </div>
+
+                    <h3 class="cert-category-title">Student Clubs & Volunteer Work</h3>
+                    
+                    <div class="cert-card">
+                        <h3>Topic 10</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Topic 11</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Topic 12</h3>
+                        <p>Little Description of what this is about</p>
+                        <a href="#" class="cert-btn">View Certificate</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="design1" class="page">
+            <section class="project-detail">
+                <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
+                <h2>Design Title 1</h2>
+                <div class="project-content">
+                    <div class="project-image-large">
+                        <img src="design1-detail.jpg" alt="Design 1 Details" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Design Overview</h3>
+                        <p>Detailed description of your design work. Explain the concept, creative process, and final outcome.</p>
+                        <div class="project-details-list">
+                            <p><strong>Type:</strong> Logo Design / Branding / UI Design</p>
+                            <p><strong>Duration:</strong> Project timeline</p>
+                            <p><strong>Tools:</strong> Figma, Illustrator, etc.</p>
+                            <p><strong>Client/Purpose:</strong> Who it was for</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="design1-gallery-1.jpg" alt="Gallery 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="design1-gallery-2.jpg" alt="Gallery 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="design1-gallery-3.jpg" alt="Gallery 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="design1-gallery-4.jpg" alt="Gallery 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="design1-gallery-5.jpg" alt="Gallery 5" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="design2" class="page">
+            <section class="project-detail">
+                <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
+                <h2>Design Title 2</h2>
+                <div class="project-content">
+                    <div class="project-image-large">
+                        <img src="design2-detail.jpg" alt="Design 2 Details" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Design Overview</h3>
+                        <p>Detailed description of your design work. Explain the concept, creative process, and final outcome.</p>
+                        <div class="project-details-list">
+                            <p><strong>Type:</strong> Logo Design / Branding / UI Design</p>
+                            <p><strong>Duration:</strong> Project timeline</p>
+                            <p><strong>Tools:</strong> Figma, Illustrator, etc.</p>
+                            <p><strong>Client/Purpose:</strong> Who it was for</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="design2-gallery-1.jpg" alt="Gallery 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="design2-gallery-2.jpg" alt="Gallery 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="design2-gallery-3.jpg" alt="Gallery 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="design2-gallery-4.jpg" alt="Gallery 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="design2-gallery-5.jpg" alt="Gallery 5" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="design3" class="page">
+            <section class="project-detail">
+                <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
+                <h2>Design Title 3</h2>
+                <div class="project-content">
+                    <div class="project-image-large">
+                        <img src="design3-detail.jpg" alt="Design 3 Details" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Design Overview</h3>
+                        <p>Detailed description of your design work. Explain the concept, creative process, and final outcome.</p>
+                        <div class="project-details-list">
+                            <p><strong>Type:</strong> Logo Design / Branding / UI Design</p>
+                            <p><strong>Duration:</strong> Project timeline</p>
+                            <p><strong>Tools:</strong> Figma, Illustrator, etc.</p>
+                            <p><strong>Client/Purpose:</strong> Who it was for</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="design3-gallery-1.jpg" alt="Gallery 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="design3-gallery-2.jpg" alt="Gallery 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="design3-gallery-3.jpg" alt="Gallery 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="design3-gallery-4.jpg" alt="Gallery 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="design3-gallery-5.jpg" alt="Gallery 5" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="design4" class="page">
+            <section class="project-detail">
+                <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
+                <h2>Design Title 4</h2>
+                <div class="project-content">
+                    <div class="project-image-large">
+                        <img src="design4-detail.jpg" alt="Design 4 Details" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Design Overview</h3>
+                        <p>Detailed description of your design work. Explain the concept, creative process, and final outcome.</p>
+                        <div class="project-details-list">
+                            <p><strong>Type:</strong> Logo Design / Branding / UI Design</p>
+                            <p><strong>Duration:</strong> Project timeline</p>
+                            <p><strong>Tools:</strong> Figma, Illustrator, etc.</p>
+                            <p><strong>Client/Purpose:</strong> Who it was for</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="design4-gallery-1.jpg" alt="Gallery 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="design4-gallery-2.jpg" alt="Gallery 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="design4-gallery-3.jpg" alt="Gallery 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="design4-gallery-4.jpg" alt="Gallery 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="design4-gallery-5.jpg" alt="Gallery 5" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1904,22 +2326,73 @@
                 </div>
             </section>
         </div>
-
+        
         <div id="about" class="page">
             <section class="about-section">
-                <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <video autoplay muted loop playsinline>
-                            <source src="Aboutmevideo.mp4" type="video/mp4">
-                        </video>
+                <div class="about-left-column">
+                    <div class="about-image">
+                        <div class="about-image-placeholder">
+                            <video autoplay muted loop playsinline>
+                                <source src="Aboutmevideo.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
-                <div class="about-content">
-                    <h2>About me</h2>
-                    <p>I am a 22 year old foreign student from Honduras, Central America.</p>
-                    <p>Studying in Peter the Great Saint Petersburg Polytechnic University, my program is International Business (in English), currently studying on third year.</p>
+                
+                <div class="about-right-column">
+                    <div class="about-content">
+                        <h2>About me</h2>
+                        <p>I'm a 22 year old student from Honduras, Central America, currently living in the city of Saint Petersburg, Russian Federation.</p>
+                        <p>Studying in Peter the Great Saint Petersburg Polytechnic University (SPbPU), my program is International Business in English, currently studying on third year.</p>
+                    </div>
+                    
+                    <div class="hobbies-section">
+                        <h3>Hobbies</h3>
+                        <div class="hobbies-grid">
+                            <div class="hobby-card" onclick="toggleHobby(this)">
+                                <div class="hobby-header">
+                                    <span class="hobby-title">Title 1</span>
+                                    <span class="hobby-arrow">↷</span>
+                                </div>
+                                <div class="hobby-description">
+                                    <p>Description of your hobby and what you enjoy about it. Add details about your experience and passion.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="hobby-card" onclick="toggleHobby(this)">
+                                <div class="hobby-header">
+                                    <span class="hobby-title">Title 2</span>
+                                    <span class="hobby-arrow">↷</span>
+                                </div>
+                                <div class="hobby-description">
+                                    <p>Description of your hobby and what you enjoy about it. Add details about your experience and passion.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="hobby-card" onclick="toggleHobby(this)">
+                                <div class="hobby-header">
+                                    <span class="hobby-title">Title 3</span>
+                                    <span class="hobby-arrow">↷</span>
+                                </div>
+                                <div class="hobby-description">
+                                    <p>Description of your hobby and what you enjoy about it. Add details about your experience and passion.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="hobby-card" onclick="toggleHobby(this)">
+                                <div class="hobby-header">
+                                    <span class="hobby-title">Title 4</span>
+                                    <span class="hobby-arrow">↷</span>
+                                </div>
+                                <div class="hobby-description">
+                                    <p>Description of your hobby and what you enjoy about it. Add details about your experience and passion.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-            </section> 
+            </section>
             
             <section class="testimonials-section">
                 <h3>References</h3> 
@@ -2119,19 +2592,19 @@
                     <p class="contact-intro">Feel free to reach out through any of these channels!</p>
                     <div class="contact-info">
                         <div class="contact-item">
-                            <h3>Phone number:</h3>
-                            <p>+7 (999) 999-99-99</p>
-                            <p>+504 9999-9999</p>
+                            <h3>Phone number</h3>
+                            <p>+7 (921) 398-44-01</p>
+                            <p>+504 3257-8244</p>
                         </div>
                         <div class="contact-item">
-                            <h3>E-mail:</h3>
+                            <h3>E-mail</h3>
                             <p>noris.mercedes7@mail.ru</p>
                             <p>noris.mercedes7@gmail.com</p>
                         </div>
                         <div class="contact-item">
-                            <h3>Telegram:</h3>
+                            <h3>Telegram</h3>
                             <p>@nicto_neo</p>
-                        </div>
+                        </div>    
                     </div>
                 </div>
             </section>
@@ -2215,6 +2688,10 @@
             else if (e.key === 'ArrowLeft') changeLightboxImage(-1);
             else if (e.key === 'ArrowRight') changeLightboxImage(1);
         });
+
+        function toggleHobby(card) {
+            card.classList.toggle('expanded');
+        }
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
