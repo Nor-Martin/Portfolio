@@ -206,7 +206,7 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-10px);
-            background: rgba(246, 240, 234, 0.608);
+            background: rgba(246, 240, 234, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 165, 165, 0.4);
             border-radius: 12px;
@@ -215,8 +215,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
             margin-top: 15px;
         }
 
@@ -1420,11 +1420,19 @@
             }
 
             .dropdown-menu {
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%) translateY(-10px);
-                width: 90%;
-                max-width: 300px;
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translateX(-50%) translateY(-50%) !important;
+                width: 85%;
+                max-width: 280px;
+                background: rgba(246, 240, 234, 0.98);
+                z-index: 10000;
+            }
+            
+            nav li.dropdown-active .dropdown-menu {
+                opacity: 1 !important;
+                visibility: visible !important;
             }
 
             .decorative-line {
@@ -1471,7 +1479,7 @@
             .cta-button {
                 width: 100%;
                 text-align: center;
-                padding: 10px 18px;
+                padding: 8px 15px;
                 font-size: 0.95rem;
             }
             
@@ -1887,17 +1895,27 @@
             }
 
             .hero-highlights {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 15px;
-                align-items: flex-start;
+                justify-content: space-between;
             }
             
             .highlight-item {
-                width: 100%;
+                flex: 1;
+                min-width: 0;
             }
             
             .highlight-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .highlight-label {
+                font-size: 0.75rem;
+            }
+        
+
+            .highlight-label {
+                font-size: 0.8rem;
             }
 
             .section-title {
@@ -2980,19 +2998,39 @@
             document.querySelectorAll('nav li:has(.dropdown-menu) > a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const menu = this.nextElementSibling;
-                    const isOpen = menu.style.visibility === 'visible';
+                    e.stopPropagation();
                     
-                    document.querySelectorAll('.dropdown-menu').forEach(d => {
-                        d.style.opacity = '0';
-                        d.style.visibility = 'hidden';
+                    const parentLi = this.parentElement;
+                    const isActive = parentLi.classList.contains('dropdown-active');
+                    
+                    // Close all dropdowns
+                    document.querySelectorAll('nav li').forEach(li => {
+                        li.classList.remove('dropdown-active');
                     });
                     
-                    if (!isOpen) {
-                        menu.style.opacity = '1';
-                        menu.style.visibility = 'visible';
+                    // Toggle current dropdown
+                    if (!isActive) {
+                        parentLi.classList.add('dropdown-active');
                     }
                 });
+            });
+            
+            // Close dropdown when clicking menu items
+            document.querySelectorAll('.dropdown-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.querySelectorAll('nav li').forEach(li => {
+                        li.classList.remove('dropdown-active');
+                    });
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('nav')) {
+                    document.querySelectorAll('nav li').forEach(li => {
+                        li.classList.remove('dropdown-active');
+                    });
+                }
             });
         }
 
