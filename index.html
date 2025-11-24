@@ -1422,8 +1422,8 @@
             .dropdown-menu {
                 position: fixed !important;
                 left: 50% !important;
-                top: 50% !important;
-                transform: translateX(-50%) translateY(-50%) !important;
+                top: 25% !important;
+                transform: translateX(-50%) translateY(-25%) !important;
                 width: 85%;
                 max-width: 280px;
                 background: rgba(246, 240, 234, 0.98);
@@ -1483,12 +1483,20 @@
                 font-size: 0.95rem;
             }
             
-            .hero-highlights {
+           .hero-highlights {
+                display: flex;
+                flex-direction: row;
                 gap: 20px;
                 margin-top: 30px !important;
                 margin-bottom: 30px !important;
                 padding-top: 25px;
-                justify-content: space-between;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .highlight-item {
+                flex: 0 1 auto;
+                text-align: center;
             }
             
             .highlight-number {
