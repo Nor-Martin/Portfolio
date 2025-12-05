@@ -1291,6 +1291,80 @@
             background-color: #a05f5f;
         }
 
+        .header-language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            z-index: 1001;
+        }
+
+        .current-lang-btn {
+            font-family: 'Katibeh', serif;
+            font-size: 1.1rem;
+            color: #c77b7b;
+            background: transparent;
+            border: none;
+            padding: 3px 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .current-lang-btn:hover {
+            background: rgba(212, 165, 165, 0.2);
+            border-color: #c77b7b;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: rgba(246, 240, 234, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 165, 0.4);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .header-language-switcher:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-dropdown-item {
+            font-family: 'Zen Maru Gothic', serif;
+            font-size: 0.8rem;
+            color: #8b6f5e;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-dropdown-item:hover {
+            background: rgba(212, 165, 165, 0.2);
+            color: #c77b7b;
+        }
+
+        .lang-dropdown-item.active {
+            color: #c77b7b;
+            font-weight: 500;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -1860,6 +1934,16 @@
                 font-size: 1.1rem;
             }
 
+            .header-language-switcher {
+                top: 15px;
+                right: 15px;
+            }
+
+            .current-lang-btn {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+
             .decorative-sheep {
                 width: 60px;
                 height: 60px;
@@ -2008,6 +2092,17 @@
                     </li>
                 </ul>
             </nav>
+            <div class="header-language-switcher">
+                <button class="current-lang-btn">
+                    <span id="current-lang-display">EN</span>
+                    <span style="font-size: 0.8rem;">⌵</span>
+                </button>
+                <div class="lang-dropdown">
+                    <button class="lang-dropdown-item active" data-lang="en">English</button>
+                    <button class="lang-dropdown-item" data-lang="es">Español</button>
+                    <button class="lang-dropdown-item" data-lang="ru">Русский</button>
+                </div>
+            </div>
         </header>
 
         <div class="decorative-line"></div>
@@ -2058,16 +2153,16 @@
                         <p>"Ideas that became reality, a record of artistry"</p>
                         <p>Projects made in various fields</p>
                     </div>
-                        <div class="portfolio-card" onclick="showPage('designs')">
-                            <h3>Designs</h3>
-                            <p>"Creativity brought to life through visual expression"</p>
-                            <p>Design work across various mediums</p>
-                        </div>
                     <div class="portfolio-card" onclick="showPage('certifications')">
                         <h3>Certifications</h3>
                         <p>"Judgment forged through thoughtful reflection"</p>
                         <p>Certifications in diverse areas</p>
                     </div>
+                        <div class="portfolio-card" onclick="showPage('designs')">
+                            <h3>Designs</h3>
+                            <p>"Creativity brought to life through visual expression"</p>
+                            <p>Design work across various mediums</p>
+                        </div>
                 </div>
             </section>
         </div>
@@ -2094,7 +2189,7 @@
                     <div class="portfolio-item" onclick="showPage('project3')" style="background-image: url('project3.jpg');">
                         <div class="portfolio-item-content">
                             <h3>Portfolio Website "NorMartin"</h3>
-                            <p>Brief description of the project and your role</p>
+                            <p>Creation, design & coding of the portfolio website</p>
                         </div>
                     </div>
                     <div class="portfolio-item" onclick="showPage('project4')" style="background-image: url('project4.jpg');">
@@ -2166,7 +2261,7 @@
                     
                     <div class="cert-card">
                         <h3>Microsoft Office Specialist: Excel Associate - 2025</h3>
-                        <p>The Microsoft Office Specialist (MOS) Excel Associate certification validates abilities to create, edit, and manage Excel worksheets and workbooks, plus working with formulas.</p>
+                        <p>The Microsoft Office Specialist (MOS) Excel Associate certification validates professional competencies in the core features of Excel, including the creation and management of worksheets and workbooks, the application of formulas and functions for data operations, and the organization of data within tables and ranges to produce effective work products.</p>
                         <a href="CertificateMOS_Excel_Associate_NorMartin_2025wresults.pdf" class="cert-btn">View Certificate</a>
                     </div>
                     <div class="cert-card">
@@ -2220,8 +2315,18 @@
                     
                     <div class="cert-card">
                         <h3>TutorForces - 2025</h3>
-                        <p>Part of the SMM & Promotion department, designer. TutorForces is a non-profit organization whose purpose is to help with adaption & documentation to foreigners new to Saint Petersburg.  As well, dedicated to make both russian and foreign students feel comfortable and learn new things from each other through speaking clubs, meetings, helping each other and much more.</p>
-                        <a href="#" class="cert-btn">View Certificate</a>
+                        <p>Vice Head of the SMM & Promotion department, designer. TutorForces is a non-profit organization whose purpose is to help with adaption & documentation to foreigners new to Saint Petersburg.  As well, dedicated to make both russian and foreign students feel comfortable and learn new things from each other through speaking clubs, meetings, helping each other and much more.</p>
+                        <a href="Tutorforces Certificate.pdf" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Winter University - 2025</h3>
+                        <p> Volunteer in the project, helping new students to adapt to the city of Saint Petersburg and within the university. Winter University is an international intensive two-week program with students from different countries to develop engineering projects, build professional network, practical experience, develop leadership skills and create collaborative solutions through team challenges, workshops, and cultural exchange. This year, the Saint-Petersburg Polytechnic University was part for the winter university program.</p>
+                        <a href="WinterUniversity_volunteer2025.pdf" class="cert-btn">View Certificate</a>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Graduation Ceremony - 2025</h3>
+                        <p> Graduation Ceremonies Volunteer. Perfomed tasks as a volunteer position at the Institute of Industrial Management, Economics, and Trade, whose purpose was to support the execution of the institute's main annual event. As well, dedicated to ensuring a memorable and seamless experience for graduates and guests through hall and photo zone preparation, distributing academic gowns and badges, and providing guidance and assistance throughout the ceremony.</p>
+                        <a href="Благодарность.pdf" class="cert-btn">View Certificate</a>
                     </div>
                 </div>
             </section>
@@ -2590,10 +2695,10 @@
         <div id="project3" class="page">
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
-                <h2>Title 3</h2>
+                <h2></h2>
                 <div class="project-content">
                     <div class="project-image-large">
-                        <img src="project3-detail.jpg" alt="Project 3 Details" loading="lazy">
+                        <img src="Portada website.png" alt="Project 3 Details" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Project Overview</h3>
@@ -2873,7 +2978,7 @@
                                 <h4>TutorForces (SPbPU)</h4>
                                 <span class="resume-item-date">2024 - Present</span>
                             </div>
-                            <p class="resume-item-subtitle">Organizer, Designer in SMM Department</p>
+                            <p class="resume-item-subtitle">Vice Head and Designer of the SMM & Promotion department</p>
                             <p>Preparation of designs for posts, and idea generations. Programs used: Figma, Clip Studio Paint.</p>
                         </div>
                         
@@ -3075,10 +3180,28 @@
             card.setAttribute('aria-expanded', isExpanded);
         }
 
-        document.querySelectorAll('.lang-btn').forEach(btn => {
+        document.querySelectorAll('.lang-dropdown-item, .lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                
+                // Update all language buttons
+                document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.remove('active'));
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                
                 this.classList.add('active');
+                
+                // Update header display
+                const display = document.getElementById('current-lang-display');
+                if (display) {
+                    display.textContent = lang.toUpperCase();
+                }
+                
+                // Update footer buttons
+                document.querySelectorAll('.lang-btn').forEach(b => {
+                    if (b.dataset.lang === lang) {
+                        b.classList.add('active');
+                    }
+                });
             });
         });
     </script>
