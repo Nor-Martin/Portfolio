@@ -57,6 +57,8 @@
         .page {
             display: none;
             animation: fadeIn 0.5s ease-out;
+            margin: 0;
+            padding: 0;
         }
 
         .page.active {
@@ -151,13 +153,22 @@
         }
 
         header {
-            padding: 40px 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: relative;
+            z-index: 100;
+            background: transparent;
         }
 
+        body.page-home header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
         .logo {
             cursor: pointer;
         }
@@ -275,21 +286,36 @@
             background-color: #f5f1ed00;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
+        .hero {
+            padding-top: 0;
+            position: relative;
+            margin-top: 0;
+            width: 100vw;
+            height: 100vh;
+            margin-left: calc(-50vw + 50%);
+            background-image: url('heroprofphoto.jpg');
+            background-size: cover;
+            background-position: center top;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 80px 60px;
+            color: white;
+            overflow: hidden;
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            min-height: 60vh;
-            padding: 40px 0;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            z-index: 0;
         }
 
         .hero-text {
+            position: relative;
+            z-index: 1;
+            max-width: 60%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -297,25 +323,51 @@
 
         .hero-text h2 {
             font-family: 'Katibeh', serif;
-            font-size: 4.5rem;
-            color: #8b6f5e;
+            font-size: 6.5rem;
+            color: rgb(244, 237, 232, 1);
             font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 0;
         }
 
         .hero-text p {
-            font-size: 1.2rem;
-            color: #8b6f5e;
-            margin-bottom: 15px;
-            max-width: 500px;
+            font-size: 1.5rem;
+            color: rgb(244, 237, 232, 1) !important ;
+            margin-bottom: 5px;
+        }
+
+        .hero-highlights {
+            display: flex;
+            gap: 48px;
+            margin-top: 16px;
+            margin-bottom: 0;
+            padding: 30px 0px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: 650px;
+        }
+
+        .highlight-number {
+            font-family: 'Katibeh', serif;
+            font-size: 2.8rem;
+            color: rgba(244, 237, 232, 1) !important;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .highlight-label {
+            font-size: 1.3rem;
+            color: rgba(244, 237, 232, 1) !important;
         }
 
         .hero-text .philosophy {
             font-style: italic;
-            margin-top: 20px;
+            margin-top: 16px;
             font-weight: 300;
+            color: rgba(244, 237, 232, 1);
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: 650px;
         }
 
         .hero-image {
@@ -333,41 +385,50 @@
         }
 
         .hero-cta {
+            position: absolute;
+            right: 80px;
+            bottom: 60px;
+            z-index: 1;
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            gap: 14px;
         }
 
         .cta-button {
-            padding: 8px 20px;
+            display: block;
+            padding: 14px 50px;
+            border: 1px solid rgb(244, 237, 232, 1);
             border-radius: 8px;
+            color: rgb(244, 237, 232, 1);
             text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            cursor: pointer;
+            font-size: 1.4rem;
             font-weight: 500;
-            letter-spacing: 0.3px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover,
+        .cta-button.primary:hover,
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: none;
+            box-shadow: none;
+            border-color: rgb(244, 237, 232, 1);
         }
 
         .cta-button.primary {
-            background-color: #c77b7b;
-            color: #f5f1ed;
-            border: 2px solid #c77b7b;
-        }
-
-        .cta-button.primary:hover {
-            background-color: #a05f5f;
-            border-color: #a05f5f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(199, 123, 123, 0.3);
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.1);;
+            border: 2px solid rgba(255,255,255,0.1);;
         }
 
         .cta-button.secondary {
-            background-color: transparent;
-            color: #c77b7b;
-            border: 2px solid #c77b7b;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.1);;
+            border: 2px solidrgba(255,255,255,0.1);
         }
 
         .cta-button.secondary:hover {
@@ -380,12 +441,12 @@
             gap: 40px;
             margin-top: 20px;
             margin-bottom: 20px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(212, 165, 165, 0.3);
+            padding: 30px 15px 0;
         }
 
         .highlight-item {
             display: flex;
+            margin-right: 50px;
             flex-direction: column;
             align-items: flex-start;
             text-align: left;
@@ -393,39 +454,17 @@
 
         .highlight-number {
             font-family: 'Katibeh', serif;
-            font-size: 2.8rem;
-            color: #c77b7b;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.5);
             font-weight: 400;
             line-height: 1;
             margin-bottom: 8px;
         }
 
         .highlight-label {
-            font-size: 0.95rem;
-            color: #a08070;
-            line-height: 1.3;
-        }
-
-        .hero-text .philosophy {
-            font-style: italic;
-            margin-top: 15px;
-            font-weight: 300;
-            padding-top: 20px;
-            border-top: 1px solid rgba(212, 165, 165, 0.2);
-        }
-
-        .image-placeholder {
-            width: 600px;
-            height: 450px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            font-size: 1.3rem;
+            color: rgba(244, 237, 232, 1);
+            line-height: 3;
         }
 
         .section-title {
@@ -1210,7 +1249,7 @@
             background-color: rgba(212, 165, 165, 0.1);
             border-top: 1px solid rgba(139, 111, 94, 0.2);
             padding: 40px 0;
-            margin-top: 100px;
+            margin-top: 0px;
             width: 100vw;
             position: relative;
             left: 50%;
@@ -1369,7 +1408,6 @@
             scroll-behavior: smooth;
         }
 
-        /* IMPROVED MOBILE RESPONSIVENESS */
         @media (max-width: 1024px) {
             .container {
                 padding: 0 30px;
@@ -1383,13 +1421,6 @@
                 font-size: 1.2rem;
             }
 
-            .hero,
-            .about-section,
-            .project-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .hero-text h2,
             .about-content h2 {
                 font-size: 3.5rem;
@@ -1398,13 +1429,9 @@
             .image-placeholder,
             .about-image-placeholder {
                 width: 100%;
-                max-width: 500px;
+                max-width: 700px;
                 margin: 0 auto;
-            }
-            
-            .hobbies-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }    
+            }  
 
             .portfolio-grid {
                 grid-template-columns: 1fr;
@@ -1429,12 +1456,6 @@
             
             .about-right-column {
                 gap: 40px;
-            }
-            
-            .about-image-placeholder {
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
             }
             
             .hobbies-grid {
@@ -1525,18 +1546,18 @@
 
             .hero-text h2 {
                 font-size: 2.5rem;
+                text-align: center;
                 margin-bottom: 25px;
             }
 
             .hero-text p {
-                font-size: 1.05rem;
-                margin-bottom: 20px;
+                text-align: center;
             }
 
             .hero-text .philosophy {
-                margin-top: 30px;
-                font-size: 1rem;
+                text-align: center;
             }
+
 
             .hero-subtitle {
                 font-size: 1rem !important;
@@ -1545,25 +1566,39 @@
             
             .hero-cta {
                 flex-direction: column;
+                align-items: center;
                 gap: 12px;
-                margin-top: 25px !important;
-                margin-bottom: 30px !important;
+                margin-top: 25px;
+                margin-bottom: 30px;
             }
             
+            .hero-image {
+                order: -1;
+                display: flex;
+                justify-content: center;
+            }
+
             .cta-button {
                 width: 100%;
                 text-align: center;
                 padding: 8px 15px;
                 font-size: 0.95rem;
             }
-            
+
+            .image-placeholder {
+                width: 100%;
+                max-width: 280px;
+                height: auto;
+                aspect-ratio: 3/4;
+                margin: 0 auto;
+            }
             .hero-highlights {
                 display: flex;
                 flex-direction: row;
                 gap: 30px;
                 margin-top: 30px !important;
                 margin-bottom: 30px !important;
-                padding-top: 25px;
+                padding: 30px 15px 0;
                 justify-content: space-around;
             }
 
@@ -1986,6 +2021,10 @@
             .hero-text h2 {
                 font-size: 2.2rem;
             }
+            
+            .image-placeholder {
+                max-width: 220px;
+            }
 
             .hero-highlights {
                 flex-direction: row;
@@ -2001,11 +2040,7 @@
             .highlight-number {
                 font-size: 1.8rem;
             }
-            
-            .highlight-label {
-                font-size: 0.75rem;
-            }
-        
+
 
             .highlight-label {
                 font-size: 0.8rem;
@@ -2065,12 +2100,14 @@
         <img src="Sheepy sheep.png" alt="Decorative sheep" loading="lazy">
     </div>
 
-    <div class="container">
-        <header>
+    <header>
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding-top:40px; padding-bottom:20px; position:relative;">
+            
             <div class="logo" onclick="showPage('home')">
                 <img src="logo.png" alt="Noris Martinez" loading="eager" class="logo-desktop">
                 <img src="logocel.png" alt="Noris Martinez" loading="eager" class="logo-mobile">
             </div>
+
             <nav>
                 <ul>
                     <li><a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a></li>
@@ -2092,6 +2129,7 @@
                     </li>
                 </ul>
             </nav>
+
             <div class="header-language-switcher">
                 <button class="current-lang-btn">
                     <span id="current-lang-display">EN</span>
@@ -2103,22 +2141,17 @@
                     <button class="lang-dropdown-item" data-lang="ru">Русский</button>
                 </div>
             </div>
-        </header>
 
-        <div class="decorative-line"></div>
+        </div>
+    </header>
 
+    <div class="container">
         <div id="home" class="page active">
             <section class="hero">
                 <div class="hero-text">
-                    <h2>Hello, I am Noris</h2>
                     <p>Management | Design | Economics</p>
-                    
-                    <div class="hero-cta">
-                        <a onclick="showPage('resume')" class="cta-button primary">See My Resume</a>
-                        <a onclick="showPage('portfolio')" class="cta-button primary">View Works</a>
-                        <a onclick="showPage('contact')" class="cta-button secondary">Get in Touch</a>
-                    </div>
-                    
+                    <h2>Hello, I am Noris</h2>
+
                     <div class="hero-highlights">
                         <div class="highlight-item">
                             <span class="highlight-number">3rd</span>
@@ -2129,22 +2162,24 @@
                             <span class="highlight-label">Years Managing</span>
                         </div>
                         <div class="highlight-item">
-                            <span class="highlight-number">10+</span>
+                            <span class="highlight-number">20+</span>
                             <span class="highlight-label">Certifications</span>
                         </div>
                     </div>
-                    
+
                     <p class="philosophy">"Learning is a constant process, and it doesn't end here."</p>
                 </div>
-                <div class="hero-image">
-                    <div class="image-placeholder">
-                        <img src="Profphoto.jpg" alt="Noris Martinez" loading="eager">
-                    </div>
+
+                <div class="hero-cta">
+                    <a onclick="showPage('resume')" class="cta-button">See My Resume</a>
+                    <a onclick="showPage('portfolio')" class="cta-button">View Works</a>
+                    <a onclick="showPage('contact')" class="cta-button">Get in Touch</a>
                 </div>
             </section>
         </div>
 
         <div id="portfolio" class="page">
+            <div class="decorative-line"></div>
             <section class="portfolio-landing">
                 <h2 class="section-title">Portfolio</h2>
                 <div class="portfolio-cards three-cards">
@@ -2168,6 +2203,7 @@
         </div>
 
         <div id="projects" class="page">
+            <div class="decorative-line"></div>
             <section class="portfolio-section">
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2 class="section-title">Projects</h2>
@@ -2203,6 +2239,7 @@
         </div>
 
         <div id="designs" class="page">
+            <div class="decorative-line"></div>
             <section class="portfolio-section">
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2 class="section-title">Designs</h2>
@@ -2253,6 +2290,7 @@
         </div>
 
         <div id="certifications" class="page">
+            <div class="decorative-line"></div>
             <section class="certifications-section">
                 <a class="back-button" onclick="showPage('portfolio')">Back to Portfolio</a>
                 <h2 class="section-title">Certifications</h2>
@@ -2373,6 +2411,7 @@
         </div>
 
         <div id="design1" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2>Design Title 1</h2>
@@ -2415,6 +2454,7 @@
         </div>
 
         <div id="design2" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2>Design Title 2</h2>
@@ -2457,6 +2497,7 @@
         </div>
 
         <div id="design3" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2>Ecorides - 2025</h2>
@@ -2496,6 +2537,7 @@
         </div>
 
         <div id="design4" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2>3ont Up - 2024</h2>
@@ -2540,6 +2582,7 @@
             </section>
         </div>
         <div id="design5" class="page">
+            <div class="decorative-line"></div>
             <section class="portfolio-section">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2 class="section-title">Cartoon Illustrations</h2>
@@ -2615,6 +2658,7 @@
             </section>
         </div>
         <div id="design6" class="page">
+            <div class="decorative-line"></div>
             <section class="portfolio-section">
                 <a class="back-button" onclick="showPage('designs')">Back to Designs</a>
                 <h2 class="section-title">Rendered Illustrations</h2>
@@ -2689,8 +2733,51 @@
                 </div>
             </section>
         </div>
-
+        
+        <div id="project1" class="page">
+            <div class="decorative-line"></div>
+            <section class="project-detail">
+                <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
+                <h2>Title 1</h2>
+                <div class="project-content">
+                    <div class="project-image-large">
+                        <img src="project1-detail.jpg" alt="Project 1 Details" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Overview</h3>
+                        <p>This is where you can add a detailed description of your project. Explain what the project was about, what challenges you faced, and what solutions you implemented.</p>
+                        <div class="project-details-list">
+                            <p><strong>Role:</strong> Your role in the project</p>
+                            <p><strong>Duration:</strong> Project timeline</p>
+                            <p><strong>Technologies:</strong> Tools and technologies used</p>
+                            <p><strong>Outcome:</strong> Results and impact</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="project1-gallery-1.jpg" alt="Gallery 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="project1-gallery-2.jpg" alt="Gallery 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="project1-gallery-3.jpg" alt="Gallery 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="project1-gallery-4.jpg" alt="Gallery 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="project1-gallery-5.jpg" alt="Gallery 5" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
         <div id="project2" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
                 <h2>Title 2</h2>
@@ -2733,6 +2820,7 @@
         </div>
 
         <div id="project3" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
                 <h2></h2>
@@ -2775,6 +2863,7 @@
         </div>
 
         <div id="project4" class="page">
+            <div class="decorative-line"></div>
             <section class="project-detail">
                 <a class="back-button" onclick="showPage('projects')">Back to Projects</a>
                 <h2>Title 4</h2>
@@ -2817,6 +2906,7 @@
         </div>
 
         <div id="about" class="page">
+            <div class="decorative-line"></div>
             <section class="about-section">
                 <div class="about-left-column">
                     <div class="about-image">
@@ -2914,6 +3004,7 @@
         </div>
         
         <div id="resume" class="page">
+            <div class="decorative-line"></div>
             <section class="resume-section">
                 <div class="resume-header">
                     <h2 class="section-title">Resume</h2>
@@ -3072,6 +3163,7 @@
         </div>
         
         <div id="contact" class="page">
+            <div class="decorative-line"></div>
             <section class="contact-section">
                 <div class="contact-content-wrapper"> 
                     <h2>Let's connect</h2>
@@ -3107,7 +3199,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-                <p class="footer-copyright">© Noris Martínez, 2025</p>
+                <p class="footer-copyright">© Noris Martínez, 2026</p>
                 <a href="mailto:noris.mercedes7@gmail.com" class="footer-email">noris.mercedes7@gmail.com</a>
             </div>
             <div class="language-switcher">
@@ -3120,10 +3212,22 @@
     </footer>
 
     <script>
+        document.body.classList.add('page-home');
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             const page = document.getElementById(pageId);
             if(page) page.classList.add('active');
+
+            // Header absoluto solo en home
+            if (pageId === 'home') {
+                document.body.classList.add('page-home');
+            } else {
+                document.body.classList.remove('page-home');
+            }
+
+        if (document.getElementById('home').classList.contains('active')) {
+            document.body.classList.add('page-home');
+        }    
             
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.toggle('active', link.dataset.page === pageId);
