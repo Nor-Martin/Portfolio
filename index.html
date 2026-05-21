@@ -1525,7 +1525,7 @@
         }
 
          
-                @media (max-width: 768px) {
+                        @media (max-width: 768px) {
             /* ═══════════════════════════════════════════════════════════════
                MOBILE DESIGN - Based on Figma Mockups
                Frame 2085662955.png = Hero Page
@@ -1541,8 +1541,10 @@
             }
 
             body.page-home {
-                background-image: none;
-                background: transparent;
+                background-image: url('fondocel.webp');
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
             }
 
             .container {
@@ -1662,7 +1664,7 @@
                 text-align: center;
             }
 
-            /* ─── HERO PAGE (Home) - FIXED ─── */
+            /* ─── HERO PAGE (Home) ─── */
             body.page-home .hero {
                 position: relative;
                 width: 100vw;
@@ -1682,24 +1684,9 @@
                 overflow: hidden;
             }
 
-            /* Dark gradient overlay for text readability */
+            /* Remove dark gradient overlay - keep original look */
             body.page-home .hero::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 80%;
-                background: linear-gradient(
-                    to top,
-                    rgba(40, 35, 30, 0.92) 0%,
-                    rgba(40, 35, 30, 0.75) 25%,
-                    rgba(40, 35, 30, 0.5) 50%,
-                    rgba(40, 35, 30, 0.2) 75%,
-                    transparent 100%
-                );
-                z-index: 1;
-                pointer-events: none;
+                display: none;
             }
 
             /* Hero text container - centered */
@@ -1708,7 +1695,7 @@
                 z-index: 2;
                 width: 100%;
                 max-width: 100%;
-                padding: 0 20px 25px;
+                padding: 0 20px 20px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -1718,13 +1705,13 @@
                 box-sizing: border-box;
             }
 
-            /* Tagline on hero - white/cream */
+            /* Tagline on hero */
             body.page-home .hero-text > p:first-child {
-                font-size: 0.8rem !important;
-                color: rgba(244, 237, 232, 0.85) !important;
+                font-size: 0.85rem !important;
+                color: rgb(244, 237, 232, 1) !important;
                 letter-spacing: 2px;
                 text-transform: uppercase;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
                 font-weight: 300;
                 text-align: center;
                 width: 100%;
@@ -1732,13 +1719,12 @@
 
             /* Main title "Hello, I am Noris" */
             body.page-home .hero-text h2 {
-                font-size: 2.8rem !important;
-                color: rgb(244, 237, 232) !important;
+                font-size: 3rem !important;
+                color: rgb(244, 237, 232, 1) !important;
                 font-weight: 400;
                 line-height: 1.1;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
                 text-align: center;
-                text-shadow: 0 2px 12px rgba(0,0,0,0.4);
                 width: 100%;
             }
 
@@ -1749,9 +1735,9 @@
                 justify-content: center;
                 align-items: flex-start;
                 gap: 0;
-                margin: 10px auto 15px;
-                padding: 18px 0 0;
-                border-top: 1px solid rgba(255,255,255,0.25);
+                margin: 10px auto 12px;
+                padding: 15px 0 0;
+                border-top: 1px solid rgba(255,255,255,0.4);
                 width: 100%;
                 max-width: 380px;
             }
@@ -1766,18 +1752,18 @@
             }
 
             body.page-home .highlight-number {
-                font-size: 2rem !important;
-                color: rgba(244, 237, 232, 0.95) !important;
+                font-size: 2.2rem !important;
+                color: rgb(244, 237, 232, 1) !important;
                 font-weight: 400;
                 line-height: 1;
                 display: block;
-                margin-bottom: 6px;
+                margin-bottom: 4px;
                 text-align: center;
             }
 
             body.page-home .highlight-label {
-                font-size: 0.7rem !important;
-                color: rgba(244, 237, 232, 0.8) !important;
+                font-size: 0.75rem !important;
+                color: rgb(244, 237, 232, 1) !important;
                 line-height: 1.3;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
@@ -1786,13 +1772,13 @@
 
             /* Philosophy quote - centered */
             body.page-home .hero-text .philosophy {
-                font-size: 0.85rem !important;
-                color: rgba(244, 237, 232, 0.75) !important;
+                font-size: 0.9rem !important;
+                color: rgb(244, 237, 232, 1) !important;
                 font-style: italic;
-                margin: 10px auto 15px;
+                margin: 8px auto 12px;
                 padding: 0;
                 border: none;
-                max-width: 300px;
+                max-width: 320px;
                 line-height: 1.5;
                 text-align: center;
                 width: 100%;
@@ -1811,7 +1797,7 @@
                 gap: 10px;
                 width: 100%;
                 max-width: 500px;
-                padding: 0 15px 50px;
+                padding: 0 15px 30px;
                 margin: 0 auto;
                 box-sizing: border-box;
             }
@@ -1819,13 +1805,13 @@
             body.page-home .cta-button {
                 flex: 1 1 0;
                 min-width: 0;
-                padding: 12px 8px;
-                font-size: 0.72rem;
-                border: 1px solid rgba(244, 237, 232, 0.5);
+                padding: 12px 6px;
+                font-size: 0.75rem;
+                border: 1px solid rgb(244, 237, 232, 1);
                 border-radius: 8px;
-                color: rgba(244, 237, 232, 0.95);
-                background: rgba(255,255,255,0.06);
-                backdrop-filter: blur(6px);
+                color: rgb(244, 237, 232, 1);
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur(4px);
                 text-align: center;
                 white-space: nowrap;
                 letter-spacing: 0.3px;
@@ -1835,49 +1821,16 @@
             }
 
             body.page-home .cta-button:hover {
-                background: rgba(255,255,255,0.18);
+                background: rgba(255,255,255,0.25);
             }
 
             /* ─── OTHER PAGES (Non-home) ─── */
+            /* Keep original background image */
             body:not(.page-home) {
-                background: linear-gradient(
-                    180deg,
-                    #f9f2ee 0%,
-                    #f9f2ee 35%,
-                    #efd6d2 65%,
-                    #e8d5e8 85%,
-                    #f5e6e0 100%
-                );
+                background-image: url('fondocel.webp');
                 background-attachment: fixed;
-                min-height: 100vh;
-            }
-
-            body:not(.page-home) .hero {
-                display: none;
-            }
-
-            /* Decorative line for non-home pages */
-            body:not(.page-home) .decorative-line {
-                margin: 10px 0 25px;
-                height: 1px;
-                background: linear-gradient(
-                    to right,
-                    transparent 0%,
-                    rgba(196, 111, 122, 0.4) 20%,
-                    rgba(196, 111, 122, 0.8) 48%,
-                    transparent 48%,
-                    transparent 52%,
-                    rgba(196, 111, 122, 0.8) 52%,
-                    rgba(196, 111, 122, 0.4) 80%,
-                    transparent 100%
-                );
-            }
-
-            body:not(.page-home) .decorative-line::after {
-                font-size: 1.2rem;
-                color: #c77b7b;
-                padding: 0 10px;
-                background: transparent;
+                background-size: cover;
+                background-position: center;
             }
 
             /* ─── Shared Mobile Components ─── */
