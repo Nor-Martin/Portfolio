@@ -1524,533 +1524,302 @@
 
         }
 
-         
-                @media (max-width: 768px) {
-            /* ═══════════════════════════════════════════════════════════════
-               MOBILE DESIGN - Based on Figma Mockups
-               Frame 2085662955.png = Hero Page
-               Frame 2085662956.png = Other Pages
-               ═══════════════════════════════════════════════════════════════ */
-
-            /* ─── Base Mobile Styles ─── */
+         @media (max-width: 768px) {
             body {
                 background-image: url('fondocel.webp');
                 background-attachment: fixed;
-                background-size: cover;
-                background-position: center;
-            }
-
-            body.page-home {
-                background-image: none;
-                background: transparent;
             }
 
             .container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
-            /* ─── Mobile Header (Shared across all pages) ─── */
             header {
-                position: relative;
-                z-index: 100;
-                background: transparent;
-                padding: 0;
-            }
-
-            header .container {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: flex-start !important;
-                padding: 20px 20px 10px !important;
-                gap: 8px !important;
-            }
-
-            /* Logo / Name - Centered */
-            .logo {
-                order: 1;
-                margin: 0 auto;
-                text-align: center;
-            }
-
-            .logo img {
-                height: auto;
-                max-height: 50px;
-            }
-
-            .logo-desktop {
-                display: none !important;
-            }
-
-            .logo-mobile {
-                display: block !important;
-            }
-
-            /* Language Switcher - Top Right */
-            .header-language-switcher {
-                position: absolute !important;
-                top: 20px !important;
-                right: 20px !important;
-                z-index: 1001;
-            }
-
-            .current-lang-btn {
-                font-size: 0.9rem;
-                padding: 4px 10px;
-                color: #c77b7b;
-                background: rgba(255,255,255,0.15);
-                backdrop-filter: blur(8px);
-                border-radius: 6px;
-                border: 1px solid rgba(199, 123, 123, 0.3);
-            }
-
-            /* Navigation - Horizontal, centered */
-            nav {
-                order: 2;
-                width: 100%;
-            }
-
-            nav ul {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                flex-wrap: nowrap;
-                width: 100%;
-                padding: 0;
-                margin: 5px 0 0;
-            }
-
-            nav li {
-                flex-shrink: 0;
-            }
-
-            nav a {
-                font-size: 0.95rem;
-                padding: 5px 0;
-                color: #c77b7b;
-                white-space: nowrap;
-            }
-
-            nav a.active {
-                color: #a05f5f;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 0 10px;
             }
 
             .dropdown-arrow {
-                font-size: 0.7rem;
-                margin-left: 3px;
+                font-size: 0.8rem;
+                margin-left: 4px;
             }
 
-            /* Dropdown menu for mobile */
-            .dropdown-menu {
-                position: fixed !important;
-                left: 50% !important;
-                top: 50% !important;
-                transform: translate(-50%, -50%) !important;
-                width: 85%;
-                max-width: 300px;
-                background: rgba(246, 240, 234, 0.98);
-                backdrop-filter: blur(15px);
-                border-radius: 16px;
-                padding: 20px 0;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-                z-index: 10000;
-            }
-
-            .dropdown-menu a {
-                font-size: 1.1rem;
-                padding: 12px 20px;
-                text-align: center;
-            }
-
-            /* ─── HERO PAGE (Home) - FIXED ─── */
-            body.page-home .hero {
-                position: relative;
-                width: 100vw;
-                min-height: 100vh;
-                min-height: 100dvh;
-                margin-left: calc(-50vw + 50%);
-                margin-right: calc(-50vw + 50%);
-                padding: 0;
-                background-image: url('heroprofphoto.webp');
-                background-size: cover;
-                background-position: center center;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
-                text-align: center;
-                overflow: hidden;
-            }
-
-            /* Dark gradient overlay for text readability */
-            body.page-home .hero::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 80%;
-                background: linear-gradient(
-                    to top,
-                    rgba(40, 35, 30, 0.92) 0%,
-                    rgba(40, 35, 30, 0.75) 25%,
-                    rgba(40, 35, 30, 0.5) 50%,
-                    rgba(40, 35, 30, 0.2) 75%,
-                    transparent 100%
-                );
-                z-index: 1;
-                pointer-events: none;
-            }
-
-            /* Hero text container - centered */
-            body.page-home .hero-text {
-                position: relative;
-                z-index: 2;
-                width: 100%;
-                max-width: 100%;
-                padding: 0 20px 25px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-end;
-                text-align: center;
-                margin: 0 auto;
-                box-sizing: border-box;
-            }
-
-            /* Tagline on hero - white/cream */
-            body.page-home .hero-text > p:first-child {
-                font-size: 0.8rem !important;
-                color: rgba(244, 237, 232, 0.85) !important;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                margin-bottom: 10px;
-                font-weight: 300;
-                text-align: center;
-                width: 100%;
-            }
-
-            /* Main title "Hello, I am Noris" */
-            body.page-home .hero-text h2 {
-                font-size: 2.8rem !important;
-                color: rgb(244, 237, 232) !important;
-                font-weight: 400;
-                line-height: 1.1;
-                margin-bottom: 20px;
-                text-align: center;
-                text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-                width: 100%;
-            }
-
-            /* Highlights section - centered */
-            body.page-home .hero-highlights {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 0;
-                margin: 10px auto 15px;
-                padding: 18px 0 0;
-                border-top: 1px solid rgba(255,255,255,0.25);
-                width: 100%;
-                max-width: 380px;
-            }
-
-            body.page-home .highlight-item {
-                flex: 1;
-                text-align: center;
-                padding: 0 8px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            body.page-home .highlight-number {
-                font-size: 2rem !important;
-                color: rgba(244, 237, 232, 0.95) !important;
-                font-weight: 400;
-                line-height: 1;
-                display: block;
-                margin-bottom: 6px;
-                text-align: center;
-            }
-
-            body.page-home .highlight-label {
-                font-size: 0.7rem !important;
-                color: rgba(244, 237, 232, 0.8) !important;
-                line-height: 1.3;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                text-align: center;
-            }
-
-            /* Philosophy quote - centered */
-            body.page-home .hero-text .philosophy {
-                font-size: 0.85rem !important;
-                color: rgba(244, 237, 232, 0.75) !important;
-                font-style: italic;
-                margin: 10px auto 15px;
-                padding: 0;
-                border: none;
-                max-width: 300px;
-                line-height: 1.5;
-                text-align: center;
-                width: 100%;
-            }
-
-            /* CTA Buttons - centered horizontal row */
-            body.page-home .hero-cta {
-                position: relative;
-                z-index: 2;
-                right: auto;
-                bottom: auto;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                width: 100%;
-                max-width: 500px;
-                padding: 0 15px 50px;
-                margin: 0 auto;
-                box-sizing: border-box;
-            }
-
-            body.page-home .cta-button {
-                flex: 1 1 0;
-                min-width: 0;
-                padding: 12px 8px;
-                font-size: 0.72rem;
-                border: 1px solid rgba(244, 237, 232, 0.5);
-                border-radius: 8px;
-                color: rgba(244, 237, 232, 0.95);
-                background: rgba(255,255,255,0.06);
-                backdrop-filter: blur(6px);
-                text-align: center;
-                white-space: nowrap;
-                letter-spacing: 0.3px;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background 0.2s;
-            }
-
-            body.page-home .cta-button:hover {
-                background: rgba(255,255,255,0.18);
-            }
-
-            /* ─── OTHER PAGES (Non-home) ─── */
-            body:not(.page-home) {
-                background: linear-gradient(
-                    180deg,
-                    #f9f2ee 0%,
-                    #f9f2ee 35%,
-                    #efd6d2 65%,
-                    #e8d5e8 85%,
-                    #f5e6e0 100%
-                );
-                background-attachment: fixed;
-                min-height: 100vh;
-            }
-
-            body:not(.page-home) .hero {
+            .logo-desktop {
                 display: none;
             }
 
-            /* Decorative line for non-home pages */
-            body:not(.page-home) .decorative-line {
-                margin: 10px 0 25px;
-                height: 1px;
-                background: linear-gradient(
-                    to right,
-                    transparent 0%,
-                    rgba(196, 111, 122, 0.4) 20%,
-                    rgba(196, 111, 122, 0.8) 48%,
-                    transparent 48%,
-                    transparent 52%,
-                    rgba(196, 111, 122, 0.8) 52%,
-                    rgba(196, 111, 122, 0.4) 80%,
-                    transparent 100%
-                );
+            .logo-mobile {
+                display: block;
             }
 
-            body:not(.page-home) .decorative-line::after {
-                font-size: 1.2rem;
-                color: #c77b7b;
-                padding: 0 10px;
-                background: transparent;
+            .logo img {
+                height: 45px;
             }
 
-            /* ─── Shared Mobile Components ─── */
+            nav ul {
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 15px; 
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            nav li {
+                flex-shrink: 1;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+
+            .dropdown-menu {
+                position: fixed !important;
+                left: 50% !important;
+                top: 25% !important;
+                transform: translateX(-50%) translateY(-25%) !important;
+                width: 85%;
+                max-width: 280px;
+                background: rgba(246, 240, 234, 0.98);
+                z-index: 10000;
+            }
+            
+            nav li.dropdown-active .dropdown-menu {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .decorative-line {
+                margin: 10px 0 20px;
+            }
+
+            .decorative-line::after {
+                font-size: 1rem;
+            }
+
+            /* ── HERO MOBILE ── */
+            .hero {
+                height: 100svh;
+                min-height: 100svh;
+                padding: 0 20px 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                text-align: center;
+                gap: 0;
+            }
+
+            .hero-text {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-text h2 {
+                font-size: 2.8rem;
+                text-align: center;
+                margin-bottom: 10px;
+                line-height: 1.1;
+            }
+
+            .hero-text p,
+            .hero-text .hero-subtitle {
+                text-align: center;
+                font-size: 0.95rem !important;
+                margin-bottom: 12px !important;
+            }
+
+            .hero-text .philosophy {
+                text-align: center;
+                font-size: 0.85rem;
+                margin-top: 12px !important;
+                padding-top: 10px;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hero-cta {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 18px;
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+            .cta-button {
+                flex: 1;
+                text-align: center;
+                padding: 8px 6px;
+                font-size: 0.78rem;
+                white-space: nowrap;
+            }
+
+            .image-placeholder {
+                width: 100%;
+                max-width: 280px;
+                height: auto;
+                aspect-ratio: 3/4;
+                margin: 0 auto;
+            }
+            .hero-highlights {
+                display: flex;
+                flex-direction: row;
+                gap: 0;
+                margin-top: 16px !important;
+                margin-bottom: 16px !important;
+                padding: 16px 0 0;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .highlight-item {
+                flex: 0 1 auto;
+                text-align: center;
+                min-width: 80px;
+            }
+
+            
+            .highlight-number {
+                font-size: 2.2rem;
+            }
+            
+            .highlight-label {
+                font-size: 0.85rem;
+            }
+            
+            .hero-text .philosophy {
+                margin-top: 25px !important;
+                padding-top: 15px;
+                font-size: 0.95rem;
+            }
+
+
+            .image-placeholder {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                aspect-ratio: 3/4;
+            }
 
             .section-title {
-                font-size: 2.4rem;
-                margin-bottom: 30px;
-                margin-top: 10px;
+                font-size: 2.8rem;
+                margin-bottom: 40px;
             }
 
             .portfolio-cards,
             .portfolio-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 0;
+                grid-gap: 30px;
+                padding: 0 0px;
+            }
+
+            .portfolio-card {
+                padding: 40px 30px;
+            }
+
+            .portfolio-card h3 {
+                font-size: 2.8rem;
             }
 
             .portfolio-cards.three-cards {
                 grid-template-columns: 1fr;
             }
 
-            .portfolio-card {
-                padding: 35px 25px;
-            }
-
-            .portfolio-card h3 {
-                font-size: 2.2rem;
+            .portfolio-card p {
+                font-size: 1rem;
             }
 
             .portfolio-item {
-                min-height: 220px;
-                aspect-ratio: 16/10;
+                min-height: 250px;
+                padding: 0 20px;
+                width: 100%;
+            }
+
+            .portfolio-item-content {
+                padding: 20px;
+                transform: translateY(100%); 
+                background: linear-gradient(to top, rgba(196, 159, 137, 0.625) 0%, transparent 100%);
+                transition: transform 0.4s;
+            }
+
+            .portfolio-item:hover .portfolio-item-content, 
+            .portfolio-item:focus .portfolio-item-content { 
+                transform: translateY(0); 
             }
 
             .portfolio-item h3 {
-                font-size: 1.6rem;
+                font-size: 2rem;
+            }
+
+            .portfolio-item p {
+                font-size: 0.9rem;
+            }
+
+            .back-button {
+                font-size: 1rem;
+                margin-bottom: 30px;
             }
 
             .cert-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
 
             .cert-card {
-                padding: 20px;
+                padding: 25px;
             }
 
             .cert-card h3 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .project-detail h2 {
-                font-size: 2rem;
-                margin-bottom: 20px;
+                font-size: 2.8rem;
+                margin-bottom: 25px;
             }
 
             .project-content {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .about-section {
-                grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .about-image-placeholder {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                aspect-ratio: 4/5;
+            .project-info h3 {
+                font-size: 1.7rem;
             }
 
-            .about-content h2 {
-                font-size: 2.4rem;
+            .project-info p {
+                font-size: 1rem;
+            }
+
+            .project-details-list {
+                padding: 15px;
+            }
+
+            .project-gallery {
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+
+            .project-gallery h3 {
+                font-size: 2rem;
                 margin-bottom: 20px;
             }
 
-            .hobbies-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .testimonial-card {
-                padding: 25px 20px;
-            }
-
-            .resume-block h3 {
-                font-size: 1.8rem;
-            }
-
-            .resume-item h4 {
-                font-size: 1.3rem;
-            }
-
-            .skills-grid {
+            .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .skill-item {
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-
-            .contact-section {
-                padding: 40px 0;
-            }
-
-            .contact-section h2 {
-                font-size: 2.4rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 25px;
-            }
-
-            .contact-item {
-                padding: 0 0 20px 0;
-                border-right: none;
-                border-bottom: 1px solid rgba(139, 111, 94, 0.2);
-            }
-
-            .contact-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            footer {
-                margin-top: 40px;
-                padding: 25px 0;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .language-switcher {
                 gap: 15px;
             }
 
-            /* Decorative sheep - smaller on mobile */
-            .decorative-sheep {
-                width: 50px;
-                height: 50px;
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .decorative-sheep::after {
-                bottom: 60px;
-                font-size: 0.7rem;
-                padding: 5px 8px;
-            }
-
-            /* Sparkles - hide on mobile for performance */
-            .sparkles {
-                display: none;
-            }
-
-            /* Lightbox adjustments */
             .lightbox-nav {
                 font-size: 2rem;
-                padding: 12px 8px;
+                padding: 15px 10px;
             }
 
             .lightbox-nav.prev { left: 10px; }
@@ -2061,63 +1830,326 @@
                 right: 15px;
                 font-size: 2.5rem;
             }
-        }
-@media (max-width: 480px) {
-            .container {
-                padding: 0 12px;
+
+            .about-section {
+                gap: 40px;
+                padding: 30px 0;
             }
 
-            nav ul {
-                gap: 10px;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-            }
-
-            .hero-text h2 {
-                font-size: 2.6rem;
-            }
-
-            .hero-highlights {
-                gap: 0;
-                padding: 15px 0 0;
-            }
-
-            .highlight-number {
-                font-size: 2rem;
-            }
-
-            .highlight-label {
-                font-size: 0.7rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .portfolio-card h3 {
-                font-size: 1.9rem;
-            }
-
-            .portfolio-item h3 {
-                font-size: 1.4rem;
-            }
-
-            .project-detail h2 {
-                font-size: 1.7rem;
+            .about-image-placeholder {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+                aspect-ratio: 5/6;
+                margin: 0 auto;
             }
 
             .about-content h2 {
-                font-size: 2rem;
+                font-size: 2.8rem;
+                margin-bottom: 30px;
             }
 
-            .contact-section h2 {
-                font-size: 2rem;
+            .about-content p {
+                font-size: 1.05rem;
+            }
+            
+            .hobbies-section {
+                margin-top: 60px;
+                padding: 40px 0;
+            }
+
+            .hobbies-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 35px;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-card {
+                padding: 25px;
+            }
+
+            .about-right-column {
+                gap: 30px;
+            }
+
+            .hobby-title {
+                font-size: 1.6rem;
+            }
+
+            .hobby-arrow {
+                font-size: 1.3rem;
+            }
+
+            .hobby-description p {
+                font-size: 0.95rem;
+            }
+
+            .testimonials-section {
+                margin-top: 60px;
+                padding: 40px 0;
+            }
+
+            .testimonials-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 35px;
+            }
+
+            .testimonials-grid {
+                gap: 25px;
             }
 
             .testimonial-card {
-                padding: 20px 15px;
+                padding: 30px 25px;
+                gap: 20px;
+            }
+
+            .testimonial-quote {
+                font-size: 0.98rem;
+                line-height: 1.65;
+            }
+
+            .author-info h4 {
+                font-size: 1.4rem;
+            }
+
+            .author-info p {
+                font-size: 0.88rem;
+            }
+
+            .resume-section {
+                padding: 30px 0 60px;
+            }
+
+            .resume-header {
+                margin-bottom: 30px;
+            }
+
+            .download-cv-btn {
+                font-size: 1rem;
+                padding: 12px 28px;
+            }
+
+            .resume-block {
+                margin-bottom: 50px;
+            }
+
+            .resume-block h3 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+
+            .resume-item {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .resume-item h4 {
+                font-size: 1.5rem;
+            }
+
+            .resume-item-date {
+                font-size: 0.88rem;
+            }
+
+            .resume-item-subtitle {
+                font-size: 1rem;
+            }
+
+            .resume-item p {
+                font-size: 0.95rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .skill-item {
+                font-size: 0.92rem;
+                padding: 10px 15px;
+            }
+
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .contact-section h2 {
+                font-size: 2.8rem;
+                margin-bottom: 25px;
+            }
+
+            .contact-intro {
+                font-size: 1.05rem;
+                margin-bottom: 40px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-item {
+                padding: 0 0 25px 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(139, 111, 94, 0.3);
+            }
+
+            .contact-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .contact-item h3 {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+
+            .contact-item p {
+                font-size: 1rem;
+            }
+
+            footer {
+                margin-top: 60px;
+                padding: 30px 0;
+            }
+
+            .footer-content {
+                padding: 0 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+
+            .footer-left {
+                gap: 6px;
+            }
+
+            .footer-copyright {
+                font-size: 0.95rem;
+            }
+
+            .footer-email {
+                font-size: 0.9rem;
+            }
+
+            .language-switcher {
+                gap: 15px;
+            }
+
+            .language-switcher span {
+                font-size: 0.95rem;
+            }
+
+            .lang-btn {
+                font-size: 1.1rem;
+            }
+
+            .header-language-switcher {
+                top: 15px;
+                right: 15px;
+            }
+
+            .current-lang-btn {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+
+            .decorative-sheep {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .decorative-sheep::after {
+                bottom: 80px;
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+
+            .sparkle {
+                font-size: 0.8rem;
+            }
+
+            .sparkles {
+                display: none;
+            }
+            .portfolio-cards,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .image-placeholder {
+                max-width: 220px;
+            }
+
+            .hero-highlights {
+                flex-direction: row;
+                gap: 15px;
+                justify-content: space-between;
+            }
+            
+            .highlight-item {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .highlight-number {
+                font-size: 1.8rem;
+            }
+
+
+            .highlight-label {
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .portfolio-card h3 {
+                font-size: 2.3rem;
+            }
+
+            .portfolio-item h3 {
+                font-size: 1.7rem;
+            }
+
+            .project-detail h2 {
+                font-size: 2.3rem;
+            }
+
+            .about-content h2 {
+                font-size: 2.3rem;
+            }
+
+            .contact-section h2 {
+                font-size: 2.3rem;
+            }
+
+            .testimonial-card {
+                padding: 25px 20px;
             }
 
             .resume-item-header {
@@ -2129,13 +2161,36 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
-
-            .cta-button {
-                font-size: 0.7rem;
-                padding: 8px 5px;
-            }
         }
-
+    
+        /* ── Russian font override: Gabriela ── */
+        html[lang="ru"] nav a,
+        html[lang="ru"] .hero-text h2,
+        html[lang="ru"] .highlight-number,
+        html[lang="ru"] .section-title,
+        html[lang="ru"] .portfolio-card h3,
+        html[lang="ru"] .portfolio-item h3,
+        html[lang="ru"] .cert-card h3,
+        html[lang="ru"] .cert-category-title,
+        html[lang="ru"] .project-detail h2,
+        html[lang="ru"] .project-info h3,
+        html[lang="ru"] .project-gallery h3,
+        html[lang="ru"] .about-content h2,
+        html[lang="ru"] .hobbies-section h3,
+        html[lang="ru"] .hobby-title,
+        html[lang="ru"] .testimonials-section h3,
+        html[lang="ru"] .author-info h4,
+        html[lang="ru"] .resume-block h3,
+        html[lang="ru"] .resume-item h4,
+        html[lang="ru"] .contact-section h2,
+        html[lang="ru"] .lang-btn,
+        html[lang="ru"] .current-lang-btn,
+        html[lang="ru"] .cta-button,
+        html[lang="ru"] .back-button,
+        html[lang="ru"] .download-cv-btn,
+        html[lang="ru"] .cert-btn {
+            font-family: 'Gabriela', serif;
+        }
 </style>
 </head>
 <body>
@@ -2354,13 +2409,13 @@
                     </div>
                     
                     <h3 class="cert-category-title" data-i18n="designs.cat.uiux">UI/UX Design</h3>
-                    <div class="portfolio-item" onclick="showPage('design3')" style="background-image: url('UI_Concept1.webp');">
+                    <div class="portfolio-item" onclick="showPage('design3')" style="background-image: url('UI_Concept1.png');">
                         <div class="portfolio-item-content">
                             <h3 data-i18n="design.ecorides.title">Ecorides -  Your City, to an eco rhythm</h3>
                             <p data-i18n="design.ecorides.desc">Design for mobile app for the olimpic UNECO 2025</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('design4')" style="background-image: url('UI_Concept2.webp');">
+                    <div class="portfolio-item" onclick="showPage('design4')" style="background-image: url('UI_Concept2.png');">
                         <div class="portfolio-item-content">
                             <h3 data-i18n="design.3ont.title">3ont Up - Brighting up the grey days!</h3>
                             <p data-i18n="design.3ont.desc">Design for an app to rent umbrellas, startup idea for contest.</p>
@@ -2368,13 +2423,13 @@
                     </div>
                     
                     <h3 class="cert-category-title" data-i18n="designs.cat.illustration">Illustration & Drawings</h3>
-                    <div class="portfolio-item" onclick="showPage('design5')" style="background-image: url('cartoonport.webp');">
+                    <div class="portfolio-item" onclick="showPage('design5')" style="background-image: url('cartoonport.png');">
                         <div class="portfolio-item-content">
                             <h3 data-i18n="design.cartoon.title">Cartoon Illustrations</h3>
                             <p data-i18n="designs.desc.generic">Brief description of the design project</p>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="showPage('design6')" style="background-image: url('renderport.webp');">
+                    <div class="portfolio-item" onclick="showPage('design6')" style="background-image: url('renderport.png');">
                         <div class="portfolio-item-content">
                             <h3 data-i18n="design.rendered.title">Rendered Illustrations</h3>
                             <p data-i18n="designs.desc.generic">Brief description of the design project</p>
@@ -2598,7 +2653,7 @@
                 <h2>Ecorides - 2025</h2>
                 <div class="project-content">
                     <div class="project-image-large">
-                        <img src="UI_Concept1.webp" alt="Design 3 Details" loading="lazy">
+                        <img src="UI_Concept1.png" alt="Design 3 Details" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Ecorides - Your city, to an eco rhythm</h3>
@@ -2638,7 +2693,7 @@
                 <h2>3ont Up - 2024</h2>
                 <div class="project-content">
                     <div class="project-image-large">
-                        <img src="UI_Concept2.webp" alt="Design 4 Details" loading="lazy">
+                        <img src="UI_Concept2.png" alt="Design 4 Details" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>3ont Up - Brighting up the grey days!</h3>
